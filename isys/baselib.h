@@ -25,26 +25,30 @@
 
 */
 
-int b_print(std::string arguments) {
+int b_print(std::string arguments, std::string) {
     std::cout << PrettyPrint(arguments);
     return 1;
 }
 
-int b_println(std::string arguments) {
+int b_println(std::string arguments, std::string) {
     std::cout << PrettyPrint(arguments) << std::endl;
     return 1;
 }
 
 
-int b_len(std::string arguments) {
+int b_len(std::string arguments, std::string) {
     std::cout << PrettyPrint(arguments).length() << std::endl;
     return 1;
 }
 
-int b_printf(std::string arguments) {
+int b_printf(std::string arguments, std::string) {
     return 1;
 }
 
-int b_writetoFile(std::string arguments) {
-    
+int b_writetoFile(std::string arguments, std::string argVal) {
+    return 1;
+}
+
+int b_debugargs(std::string arguments, std::string argVal) {
+    std::cout << "Evaluated Arguments: " << arguments << "\n" << "Arguments by themselves: " << argVal << std::endl;
 }

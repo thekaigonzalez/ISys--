@@ -66,11 +66,11 @@ std::string ISys_Interp(std::string sss)
                 // found
             }
             */
-            fargs = ISys_Interp(trim(fargs)); /* reset to root eval */
+            fargs = trim(fargs); /* reset to root eval */
         }
         //TODO: implement ISys++ functions
         if (funcmem.find(fname) != funcmem.end()) { 
-            funcmem[fname](ISys_Interp(trim(fargs)));
+            funcmem[fname](ISys_Interp(trim(fargs)), fargs);
         } else {
             std::cout << "Error: no such function called '" << fname << "'" << std::endl;
             return "Null";
@@ -83,7 +83,7 @@ std::string ISys_Interp(std::string sss)
         if (varmem.find(split(trim(sss), ' ')[0]) != varmem.end()) {
            return varmem[split(trim(sss), ' ')[0]];
         } 
-        return "\"" + std::to_string(ToInt(sss)) + "\"";
+        return "\"" + std::to_string((int)ToInt(sss)) + "\"";
     } else if (UType(sss) == E_LIKELY) {
         /* if (trim(fargs)[0] != '\"') 
             if (varmem.find(split(fargs, ' ')[0]) != varmem.end()) {
