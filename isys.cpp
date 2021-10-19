@@ -1,7 +1,7 @@
 #include "isys/stat.h"
 
 int main() {
-    std::cout << ISys_Interp(trim("println(\"hell)o\")")) << std::endl;
+    std::cout << "ISys++ 1.0 Copyright (C) Kai D. Gonzalez" << std::endl;
     while (true) {
         std::cout << ">>>";
         std::string stat;
