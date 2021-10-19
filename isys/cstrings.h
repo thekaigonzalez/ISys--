@@ -24,6 +24,12 @@ class CString {
                         case 'r':
                             newstring = newstring + "\r";
                             break;
+                        case '"':
+                            newstring = newstring + "\""; /* update: add \" as escape to match other programming languages' string feature */
+                            break;
+                        case '(':
+                            newstring = newstring + "(";
+                            break;
                         
                         default: std::cout << "wrong escape sequence, '" << s[i+1] << "'" << std::endl; break;
                     }

@@ -7,5 +7,6 @@ std::map<std::string, int(*)(std::string, std::string)>funcmem = {
     { "print", b_print },
     { "println", b_println },
     { "len"  , b_len},
-    { "debugargs" , b_debugargs}
+    { "debugargs" , b_debugargs },
+    { "system" , b_system}
 };
