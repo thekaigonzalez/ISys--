@@ -8,6 +8,13 @@
 //print("hello!")
 //system("memes")
 
+int getLastIndex(const std::string &str, char ch) {
+   for (int i = str.length() - 1; i >= 0; i--)
+      if (str[i] == ch)
+         return i;
+   return -1;
+}
+
 const std::string WHITESPACE = " \n\r\t\f\v";
  
 std::string ltrim(const std::string &s)
@@ -31,7 +38,7 @@ std::map<std::string, std::string> varmem;
 
 std::string ISys_Interp(std::string sss) 
 {
-    std::stringstream STAT_STREAM(sss);
+    std::istringstream STAT_STREAM(sss);
     std::string keywd;
     if (UType(trim(sss)) == E_VAR) {
         STAT_STREAM >> keywd;
@@ -56,8 +63,7 @@ std::string ISys_Interp(std::string sss)
         getline(STAT_STREAM, fname, '(');
         std::string fargs = "";
         getline(STAT_STREAM, fargs, ')');
-            
-
+        int i = 0;
         if (trim(fargs)[0] != '\"') {
             /*
             if ( m.find("f") == m.end() ) {

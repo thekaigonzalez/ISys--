@@ -51,4 +51,5 @@ int b_writetoFile(std::string arguments, std::string argVal) {
 
 int b_debugargs(std::string arguments, std::string argVal) {
     std::cout << "Evaluated Arguments: " << arguments << "\n" << "Arguments by themselves: " << argVal << std::endl;
+    return 1;
 }

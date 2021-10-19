@@ -1,7 +1,7 @@
 #include "isys/stat.h"
 
 int main() {
-    std::cout << ISys_Interp(trim("println(\"hello\")")) << std::endl;
+    std::cout << ISys_Interp(trim("println(\"hell)o\")")) << std::endl;
     while (true) {
         std::cout << ">>>";
         std::string stat;

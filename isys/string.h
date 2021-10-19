@@ -15,7 +15,7 @@ std::vector<std::string>split(std::string str, char delim) {
     return stff;
 }
 
-std::string checkString(std::string c, int pos) { /* checkString("\"hello, world\"", 1, ...)") -> "hello, world!" */
+std::string checkString(std::string c, int pos) { /* checkString("\"hello, world\", 1, ...)") -> "hello, world!" */
     std::stringstream go(c);
     std::string p;
     getline(go, p, '\"');
