@@ -2,11 +2,18 @@
 #include <map>
 #include "baselib.h"
 
+int version(std::string, std::string) {
+    std::cout << "Version 1.0.0-git-scm" << std::endl;
+    return 1;
+}
+
 std::map<std::string, int(*)(std::string, std::string)>funcmem = {
     // add a list of builtins here
     { "print", b_print },
     { "println", b_println },
     { "len"  , b_len},
     { "debugargs" , b_debugargs },
-    { "system" , b_system}
+    { "system" , b_system },
+    { "version", version }
 };
+

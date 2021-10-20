@@ -63,6 +63,9 @@ std::string ISys_Interp(std::string sss)
         getline(STAT_STREAM, fname, '(');
         std::string fargs = "";
         getline(STAT_STREAM, fargs, ')');
+        fargs = trim(fargs);
+        if (fargs.empty())
+            fargs = "Empty";
         int i = 0;
         if (trim(fargs)[0] != '\"') {
             /*
