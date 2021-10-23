@@ -26,3 +26,10 @@ std::map<std::string, std::string(*)(std::string, std::string)>funcmemF = {
     #endif
 };
 
+std::map<std::string, std::string>funcmemD = {
+    {"test", "println(\"hello\"); print('l');"}
+};
+
+std::map<std::string, std::string> varglob = {
+    {"args", "NoneYet"}
+};

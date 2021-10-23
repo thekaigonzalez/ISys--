@@ -2,6 +2,10 @@
 
 ISys++ is an implementation of ISys written in C++.
 
+ISys++ Adds new releases mostly daily-weekly, you can adopt the Rolling Release model by git cloning it and git pulling. Or you can wait for verified new releases and use latest stable releases.
+
+Stable releases are tested before being posted in all areas.
+
 ## Features
 
 - Type safe

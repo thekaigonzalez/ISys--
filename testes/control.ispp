@@ -1,7 +1,9 @@
-var hello = greadline("cwd>");
-
+def check() {
+    var hello = greadline("cwd>");
+};
+check();
 if hello = "Hi." {
-    println("Hello.");
+        println("Hello.");
 }; else {
-    println("What?");
+        println("What?");
 };

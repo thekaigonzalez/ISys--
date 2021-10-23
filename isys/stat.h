@@ -102,8 +102,22 @@ std::string ISys_Interp(std::string sss)
                 // std::cout << "Found " << std::endl;
                 return funcmemF[fname](ISys_Interp(trim(fargs)), fargs);
             } else {
-                std::cout << "Error: no such function called '" << fname << "'" << std::endl;
-                return "Null";
+                if (funcmemD.find(fname) != funcmemD.end()) { 
+                    varglob["args"] = fargs;
+                    std::string stat;
+                    std::string fcontents = funcmemD[fname];
+                    std::vector<std::string>Stats = split(fcontents, ';');
+                    for (int i =0; i < Stats.size() ; ++ i)
+                        Stats[i] = trim(Stats[i]);
+                    for (const auto& stat : Stats) {
+                        if (stat.length() > 0) {
+                            ISys_Interp(stat);
+                        }
+                    }
+                } else {
+                    std::cout << "Error: no such function called '" << fname << "'" << std::endl;
+                    return "Null";
+                }
             }
         }
         return "<builtin function " + fname + ">";
@@ -219,6 +233,22 @@ std::string ISys_Interp(std::string sss)
                         }
                     }
                 }
+        }
+    } else if (UType(trim(sss)) == E_DEF) {
+        STAT_STREAM >> keywd;
+
+        if (keywd == "def") {
+            std::string fnameC;
+            std::string dummy;
+            getline(STAT_STREAM, fnameC, '(');
+            fnameC = trim(fnameC);
+            getline(STAT_STREAM, dummy,  ')');
+            dummy = trim(dummy);
+            std::string statstr;
+            getline(STAT_STREAM, statstr, '{');
+            getline(STAT_STREAM, statstr, '}');
+            statstr = trim(statstr);
+            funcmemD[fnameC] = statstr;
         }
     }
     return "Null";

@@ -1,1 +1,5 @@
-Code for gathering len
+Code for implementing functions.
+
+def WORLDHELLO(args) {
+    println(args);
+}

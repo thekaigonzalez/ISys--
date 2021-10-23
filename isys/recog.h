@@ -14,6 +14,9 @@ int UType(const std::string& c) {
     else if (split(c, ' ')[0] == "else") {
         return E_ELSE;
     }
+    else if (split(c, ' ')[0] == "def") {
+        return E_DEF;
+    }
     else if (split(c, ' ')[0] == "var") {
         return E_VAR;
     } else if (split(c, ' ')[0] == "import") {
