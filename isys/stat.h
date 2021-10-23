@@ -129,6 +129,34 @@ std::string ISys_Interp(std::string sss)
 
         STAT_STREAM.str(sss.substr(sss.find("e")+1));
         return ISys_Interp(PrettyPrint(sss));
+    } else if (UType(trim(sss)) == E_IF ) {
+        
+        STAT_STREAM >> keywd;
+        std::string var;
+        std::string value;
+        getline(STAT_STREAM, var, '=');
+        var = trim(var);
+        getline(STAT_STREAM, value, '{');
+        std::string satts;
+        getline(STAT_STREAM, satts, '}');
+
+        satts = trim(satts);
+        var = ISys_Interp(var);
+        value = ISys_Interp(trim(value));
+
+        // std::cout << "If the value " << var << "is " << value << " then execute: " << satts << std::endl;
+        std::string fcontents = satts;
+        std::vector<std::string>Stats = split(fcontents, ';');
+        if (var == value) {
+            for (int i =0; i < Stats.size() ; ++ i)
+
+                Stats[i] = trim(Stats[i]);
+                for (const auto& stat : Stats) {
+                    if (stat.length() > 0) {
+                        ISys_Interp(stat);
+                    }
+                }
+            }
     }
     return "Null";
 }

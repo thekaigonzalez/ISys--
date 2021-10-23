@@ -8,6 +8,9 @@
 //TODO: implement control
 // if VAR is 1 (number)
 int UType(const std::string& c) {
+    if (split(c, ' ')[0] == "if") {
+        return E_IF;
+    }
     if (split(c, ' ')[0] == "var") {
         return E_VAR;
     } else if (c.find("(") != std::string::npos)

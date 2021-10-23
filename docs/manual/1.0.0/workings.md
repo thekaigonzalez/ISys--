@@ -36,3 +36,13 @@ Is the same as
 print(1 + 1)
 
 ```
+
+## 1.2 Formatting print
+
+There's no printf function yet, but using raw print is a suitable replacement.
+
+```
+
+var input = read();
+
+print("Well hello there, "); print(input); print("\n");

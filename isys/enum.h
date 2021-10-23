@@ -1,7 +1,10 @@
 enum {
     E_VAR,
+    E_IF,
     E_STRING,
     E_INT,
+    E_TRUE,
+    E_FALSE,
     E_COMMENT,
     E_LIKELY,
     E_OTHER,
