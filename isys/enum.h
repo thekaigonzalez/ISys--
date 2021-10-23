@@ -2,6 +2,7 @@ enum {
     E_VAR,
     E_IF,
     E_STRING,
+    E_ELSE,
     E_INT,
     E_IMPORT,
     E_TRUE,

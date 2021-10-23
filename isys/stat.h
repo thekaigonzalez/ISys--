@@ -18,7 +18,7 @@
 // "i can use print('hello')" string
 
 
-
+int ifstate = 0;
 int getLastIndex(const std::string &str, char ch) {
    for (int i = str.length() - 1; i >= 0; i--)
       if (str[i] == ch)
@@ -140,7 +140,7 @@ std::string ISys_Interp(std::string sss)
         STAT_STREAM.str(sss.substr(sss.find("e")+1));
         return ISys_Interp(PrettyPrint(sss));
     } else if (UType(trim(sss)) == E_IF ) {
-        
+        ifstate = 1;
         STAT_STREAM >> keywd;
         std::string var;
         std::string value;
@@ -190,6 +190,29 @@ std::string ISys_Interp(std::string sss)
                         ISys_Interp(stat);
                     }
                 }
+    } else if (UType(trim(sss)) == E_ELSE) {
+        if (ifstate != 1) {
+            std::cout << "'else' without previous 'if'" << std::endl;
+            
+            return "Null";
+        }
+        std::string value;
+        getline(STAT_STREAM, value, '{');
+        std::string satts;
+        getline(STAT_STREAM, satts, '}');
+        // std::cout << "If the value " << var << "is " << value << " then execute: " << satts << std::endl;
+        std::string fcontents = satts;
+        std::vector<std::string>Stats = split(fcontents, ';');
+
+            for (int i =0; i < Stats.size() ; ++ i)
+
+                Stats[i] = trim(Stats[i]);
+                for (const auto& stat : Stats) {
+                    if (stat.length() > 0) {
+                        ISys_Interp(stat);
+                    }
+                }
+        
     }
     return "Null";
 }
