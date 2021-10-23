@@ -20,6 +20,8 @@ int UType(const std::string& c) {
         return E_LIKELY;
     } else if (c[0] == 'e') {
         return E_EVAL;
+    } else if (c[0] == '#') {
+        return E_COMMENT;
     }
     return E_NULL;
 }
