@@ -1,3 +1,6 @@
+
+# `greadline' is bind to readline() in C, use read() for portability.
+
 var hello = greadline(">>>");
 
 if hello = "hi there" {
