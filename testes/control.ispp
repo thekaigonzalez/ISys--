@@ -1,0 +1,7 @@
+var hello = greadline("cwd>");
+
+if hello = "Hi." {
+    println("Hello.");
+}; else {
+    println("What?");
+};
