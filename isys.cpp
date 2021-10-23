@@ -3,9 +3,15 @@
 void repl(bool returncodes =false) {
     std::cout << "ISys++ 1.0 Copyright (C) Kai D. Gonzalez" << std::endl;
     while (true) {
-        std::cout << ">>>";
+        
+        #ifndef USE_READLINE
         std::string stat;
         getline(std::cin, stat);
+        std::cout << ">>>";
+        #elif defined USE_READLINE
+        std::string stat = readline(">>>");
+        add_history(stat.c_str());
+        #endif
         if (stat.empty()) {
             std::cout << "Error: Empty Statement\n[C]: ?\n";
         } else {
@@ -23,6 +29,7 @@ int main(int argc, char* * argv) {
     if (argc > 1) {
         if (std::string(argv[1]) == "-returns") {
             returncodes = true;
+            repl(returncodes);
         } else {
             std::ifstream File(argv[1]);
             

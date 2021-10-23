@@ -19,6 +19,10 @@ std::map<std::string, int(*)(std::string, std::string)>funcmem = {
 
 std::map<std::string, std::string(*)(std::string, std::string)>funcmemF = {
     // add a list of builtins here
-    { "tostr" , toString }
+    { "tostr" , toString },
+    { "read" , b_read },
+    #ifdef USE_READLINE
+    { "greadline" , b_readline }
+    #endif
 };
 

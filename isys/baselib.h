@@ -1,5 +1,10 @@
 #include <iostream>
 #include <fstream>
+#ifdef USE_READLINE
+#include <readline/readline.h>
+#include <readline/history.h>
+#endif
+
 #include "cstrings.h"
 /*
  std::string foo() { return "Foo"; }
@@ -68,3 +73,20 @@ std::string toString(std::string arguments, std::string argVal)
 {
     return "\"" + arguments + "\"";
 }
+
+std::string b_read(std::string arguments, std::string argVal) {
+    std::string ret;
+    getline(std::cin, ret);
+    return "\"" + ret + "\"";
+}
+#ifdef USE_READLINE
+
+
+std::string b_readline(std::string arguments, std::string argVal) {
+    std::string re = readline(PrettyPrint(arguments).c_str());
+
+    return "\"" + re + "\"";
+}
+
+
+#endif
