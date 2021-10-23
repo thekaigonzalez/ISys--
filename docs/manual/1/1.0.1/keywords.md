@@ -16,8 +16,8 @@ Strings are hardcoded and can be detected using `"`.
 
 (NEW) variables now support return values.
 
-functions haven't been implemented yet, but when they do, you can use returns to tell the interpreter to bind that value and the code
-to the function name. And arguments expected.
+<!-- functions haven't been implemented yet, but when they do, you can use returns to tell the interpreter to bind that value and the code
+to the function name. And arguments expected. -->
 
 ## Keyword 1.2 - import
 
