@@ -1,0 +1,3 @@
+import Inputter.ispp;
+
+println(stdin);

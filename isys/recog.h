@@ -13,6 +13,8 @@ int UType(const std::string& c) {
     }
     else if (split(c, ' ')[0] == "var") {
         return E_VAR;
+    } else if (split(c, ' ')[0] == "import") {
+       return E_IMPORT; 
     } else if (c.find("(") != std::string::npos)
         return E_OTHER;
     else if (c[0] == '"') {

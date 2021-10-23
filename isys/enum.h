@@ -3,6 +3,7 @@ enum {
     E_IF,
     E_STRING,
     E_INT,
+    E_IMPORT,
     E_TRUE,
     E_FALSE,
     E_COMMENT,

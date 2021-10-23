@@ -167,6 +167,29 @@ std::string ISys_Interp(std::string sss)
                     }
                 }
             }
+    } else if (UType(trim(sss)) == E_IMPORT) {
+        STAT_STREAM >> keywd;
+        std::string file;
+        STAT_STREAM >> file;
+        std::ifstream File(file);
+        std::stringstream buf;
+                std::string stat;
+                while (getline(File, stat) ) {
+                    if (stat[0] == '#') {
+                        continue;
+                    } else {
+                        buf << stat;
+                    }
+                }
+                std::string fcontents = buf.str();
+                std::vector<std::string>Stats = split(fcontents, ';');
+                for (int i =0; i < Stats.size() ; ++ i)
+                    Stats[i] = trim(Stats[i]);
+                for (const auto& stat : Stats) {
+                    if (stat.length() > 0) {
+                        ISys_Interp(stat);
+                    }
+                }
     }
     return "Null";
 }
