@@ -5,12 +5,12 @@ void repl(bool returncodes =false) {
     while (true) {
         
         #ifndef USE_READLINE
-        std::string stat;
-        getline(std::cin, stat);
-        std::cout << ">>>";
+            std::string stat;
+            std::cout << ">>>";
+            getline(std::cin, stat);
         #elif defined USE_READLINE
-        std::string stat = readline(">>>");
-        add_history(stat.c_str());
+            std::string stat = readline(">>>");
+            add_history(stat.c_str());
         #endif
         if (stat.empty()) {
             std::cout << "Error: Empty Statement\n[C]: ?\n";
