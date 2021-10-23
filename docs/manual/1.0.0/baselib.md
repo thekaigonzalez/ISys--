@@ -19,3 +19,16 @@ Returns: `number of letters in <str> counting NUL`
 ## println(str: string) (NEW)
 
 Prints `str` with \n, you can write
+
+## tostr(i: any)
+
+Returns `"<i>"`
+
+## read (Add 2 new functions, `read` and `readline`, `read` is the portable function, while readline is POSIX based and can be disabled during compilation.)
+
+Portable input function.
+
+## greadline (Add 2 new functions, `read` and `readline`, `read` is the portable function, while readline is POSIX based and can be disabled during compilation.)
+
+binds to readline() in C. Only available on supported OSes, on windows this function does not exist.
+
