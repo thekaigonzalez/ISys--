@@ -19,6 +19,7 @@ std::string last_parse(std::string last,char tok) {
         }
         else if (last[i] == tok && istring == 2) {
             // std::cout << "Signal Stop, end " << ns << std::endl;
+            istring = 3; 
             break;
         } else {
             ns = ns + last[i];

@@ -72,8 +72,10 @@ std::string ISys_Interp(std::string sss)
     } else if (UType(trim(sss)) == E_OTHER) {
         std::string fname;
         getline(STAT_STREAM, fname, '(');
-        std::string fargs = last_parse(STAT_STREAM.str().substr(STAT_STREAM.str().find("(")+1, STAT_STREAM.str().find(")")), ')');
+        std::string fargs = last_parse(STAT_STREAM.str().substr(STAT_STREAM.str().find("(")+1, STAT_STREAM.str().find(")")-1), ')');
+        fargs.pop_back();
         fargs = trim(fargs);
+        // std::cout << fargs << std::endl;
         if (fargs.empty())
             fargs = "Empty";
         int i = 0;

@@ -1,0 +1,4 @@
+var helloworld = "Hello, world!";
+
+println(helloworld);
+
