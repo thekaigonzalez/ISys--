@@ -37,7 +37,8 @@ int b_println(std::string arguments, std::string) {
 }
 
 /* length of string */
-int b_len(std::string arguments, std::string) {
+int b_len(std::string arguments, std::string aVal) {
+    std::cout << arguments << std::endl;
     std::cout << PrettyPrint(arguments).length() << std::endl;
     return 1;
 }
