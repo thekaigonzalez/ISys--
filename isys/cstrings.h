@@ -29,7 +29,7 @@ class CString {
         }
         std::string Parse() {
             std::string s = Ctrim(sc);
-            std::cout << s << std::endl;
+            // std::cout << s << std::endl;
             std::string newstring;
             for (uint i = 0; i < s.length(); i++) {
                 if (s[i] == '\\') {

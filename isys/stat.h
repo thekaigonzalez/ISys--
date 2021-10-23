@@ -94,7 +94,7 @@ std::string ISys_Interp(std::string sss)
             funcmem[fname](ISys_Interp(trim(fargs)), fargs);
         } else {
             if (funcmemF.find(fname) != funcmemF.end()) { 
-                std::cout << "Found " << std::endl;
+                // std::cout << "Found " << std::endl;
                 return funcmemF[fname](ISys_Interp(trim(fargs)), fargs);
             } else {
                 std::cout << "Error: no such function called '" << fname << "'" << std::endl;

@@ -1,6 +1,6 @@
 #include "isys/stat.h"
 
-void repl(bool returncodes) {
+void repl(bool returncodes =false) {
     std::cout << "ISys++ 1.0 Copyright (C) Kai D. Gonzalez" << std::endl;
     while (true) {
         std::cout << ">>>";
@@ -9,7 +9,7 @@ void repl(bool returncodes) {
         if (stat.empty()) {
             std::cout << "Error: Empty Statement\n[C]: ?\n";
         } else {
-            if (returncodes) {
+            if (returncodes == true) {
                 std::cout << ISys_Interp(trim(stat)) << std::endl;
             } else {
                 ISys_Interp(trim(stat));
@@ -19,7 +19,7 @@ void repl(bool returncodes) {
 }
 
 int main(int argc, char* * argv) {
-    bool returncodes;
+    bool returncodes = false;
     if (argc > 1) {
         if (std::string(argv[1]) == "-returns") {
             returncodes = true;
@@ -36,7 +36,9 @@ int main(int argc, char* * argv) {
                 for (int i =0; i < Stats.size() ; ++ i)
                     Stats[i] = trim(Stats[i]);
                 for (const auto& stat : Stats) {
-                    ISys_Interp(stat);
+                    if (stat.length() > 0) {
+                        ISys_Interp(stat);
+                    }
                 }
             }
         }
