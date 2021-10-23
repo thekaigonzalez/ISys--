@@ -91,10 +91,15 @@ std::string ISys_Interp(std::string sss)
         if (funcmem.find(fname) != funcmem.end()) { 
             funcmem[fname](ISys_Interp(trim(fargs)), fargs);
         } else {
-            std::cout << "Error: no such function called '" << fname << "'" << std::endl;
-            return "Null";
+            if (funcmemF.find(fname) != funcmemF.end()) { 
+                std::cout << "Found " << std::endl;
+                return funcmemF[fname](ISys_Interp(trim(fargs)), fargs);
+            } else {
+                std::cout << "Error: no such function called '" << fname << "'" << std::endl;
+                return "Null";
+            }
         }
-        return "inbuilt";
+        return "<builtin function " + fname + ">";
     } else if (UType(sss) == E_STRING) {
         CString s(trim(sss));
         return s.Parse();

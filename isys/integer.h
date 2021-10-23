@@ -40,5 +40,5 @@ double ToInt(std::string s) {
 }
 
 bool IsInt(std::string c) {
-    return te_interp(c.c_str(), 0) != NAN;
+    return te_interp(c.c_str(), 0) > -1;
 }

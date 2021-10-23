@@ -17,3 +17,8 @@ std::map<std::string, int(*)(std::string, std::string)>funcmem = {
     { "version", version }
 };
 
+std::map<std::string, std::string(*)(std::string, std::string)>funcmemF = {
+    // add a list of builtins here
+    { "tostr" , toString }
+};
+

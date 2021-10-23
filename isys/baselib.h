@@ -61,3 +61,9 @@ int b_system(std::string arguments, std::string argVal) {
     system(arguments.c_str());
     return 1;
 }
+ 
+/* tostr(val) -> "val" */
+std::string toString(std::string arguments, std::string argVal)
+{
+    return "\"" + arguments + "\"";
+}
