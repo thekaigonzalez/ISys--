@@ -13,3 +13,7 @@ inbuilt
 >>>
 
 ```
+
+ISys runs on Android, iOS, PC (Windows), Linux, macOS, and other OSes.
+
+You can find the manual for ISys [here](thekaigonzalez.github.io/ISysPP)
