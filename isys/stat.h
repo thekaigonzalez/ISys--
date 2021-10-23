@@ -116,15 +116,25 @@ std::string ISys_Interp(std::string sss)
         } 
         return "\"" + std::to_string((int)ToInt(sss)) + "\"";
     } else if (UType(sss) == E_LIKELY) {
-        /* if (trim(fargs)[0] != '\"') 
-            if (varmem.find(split(fargs, ' ')[0]) != varmem.end()) {
-                fargs = "\"" + varmem[split(fargs, ' ')[0]] + "\"";
-            }
-        } 
-        */ // c
-       if (varmem.find(split(trim(sss), ' ')[0]) != varmem.end()) {
-           return varmem[split(trim(sss), ' ')[0]];
-       }
+        // std::cout << "other";
+        // if (sss == "true") {
+        //     return "1";
+        // } else if (sss == "false") {
+        //     return "0";
+        // } else {
+        //         /* if (trim(fargs)[0] != '\"') 
+        //             if (varmem.find(split(fargs, ' ')[0]) != varmem.end()) {
+        //                 fargs = "\"" + varmem[split(fargs, ' ')[0]] + "\"";
+        //             }
+        //         } 
+        //         */ // c
+        //     if (varmem.find(split(trim(sss), ' ')[0]) != varmem.end()) {
+        //         return varmem[split(trim(sss), ' ')[0]];
+        //     }
+        // }
+        if (varmem.find(split(trim(sss), ' ')[0]) != varmem.end()) {
+            return varmem[split(trim(sss), ' ')[0]];
+        }
     } else if (UType(trim(sss)) == E_EVAL) {
 
         STAT_STREAM.str(sss.substr(sss.find("e")+1));

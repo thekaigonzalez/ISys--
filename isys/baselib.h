@@ -37,6 +37,7 @@ int b_print(std::string arguments, std::string) {
 
 /* println(str) */
 int b_println(std::string arguments, std::string) {
+    // std::cout << arguments << std::endl;
     std::cout << PrettyPrint(arguments) << std::endl;
     return 1;
 }
@@ -45,6 +46,7 @@ int b_println(std::string arguments, std::string) {
 std::string b_len(std::string arguments, std::string aVal) {
     return std::to_string(PrettyPrint(arguments).length());
 }
+
 /* coming soon */
 int b_printf(std::string arguments, std::string) {
     return 1;

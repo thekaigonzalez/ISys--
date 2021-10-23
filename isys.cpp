@@ -48,7 +48,6 @@ int main(int argc, char* * argv) {
                 std::string fcontents = buf.str();
                 std::vector<std::string>Stats = split(fcontents, ';');
                 for (int i =0; i < Stats.size() ; ++ i)
-
                     Stats[i] = trim(Stats[i]);
                 for (const auto& stat : Stats) {
                     if (stat.length() > 0) {

@@ -11,7 +11,7 @@ int UType(const std::string& c) {
     if (split(c, ' ')[0] == "if") {
         return E_IF;
     }
-    if (split(c, ' ')[0] == "var") {
+    else if (split(c, ' ')[0] == "var") {
         return E_VAR;
     } else if (c.find("(") != std::string::npos)
         return E_OTHER;
@@ -26,5 +26,6 @@ int UType(const std::string& c) {
     } else if (c[0] == '#') {
         return E_COMMENT;
     }
+    
     return E_NULL;
 }

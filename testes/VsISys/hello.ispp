@@ -1,3 +1,5 @@
 
+var c = "Hello\n";
+
 # print hello
-print("Hello!\n");
+print(c);
