@@ -1,24 +1,6 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-const std::string SWHITESPACE = " \n\r\t\f\v";
- 
-std::string Cltrim(const std::string &s)
-{
-    size_t start = s.find_first_not_of(SWHITESPACE);
-    return (start == std::string::npos) ? "" : s.substr(start);
-}
- 
-std::string Crtrim(const std::string &s)
-{
-    size_t end = s.find_last_not_of(SWHITESPACE);
-    return (end == std::string::npos) ? "" : s.substr(0, end + 1);
-}
- 
-std::string Ctrim(const std::string &s) {
-    return Crtrim(Cltrim(s));
-}
-
 
 class CString {
     private:
@@ -28,7 +10,7 @@ class CString {
             sc = c;
         }
         std::string Parse() {
-            std::string s = Ctrim(sc);
+            std::string s = sc;
             // std::cout << s << std::endl;
             std::string newstring;
             for (uint i = 0; i < s.length(); i++) {
