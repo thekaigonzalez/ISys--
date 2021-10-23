@@ -70,6 +70,10 @@ std::string ISys_Interp(std::string sss)
             return trim(value); // value is return code
         }
     } else if (UType(trim(sss)) == E_OTHER) {
+        if (trim(sss)[0] == '"') {
+            CString ns(sss);
+            return ns.Parse();
+        }
         std::string fname;
         getline(STAT_STREAM, fname, '(');
         std::string fargs = last_parse(STAT_STREAM.str().substr(STAT_STREAM.str().find("(")+1, STAT_STREAM.str().find(")")-1), ')');
