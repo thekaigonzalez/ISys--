@@ -1,12 +1,23 @@
 #include <iostream>
 #include <map>
 #include "prims.h"
+#include "newlexer.h"
 #include "vstr.h"
 #include "recog.h"
 
 //var cpp = "hello!"
 //print("hello!")
 //system("memes")
+
+///somehow i need to find out how to implement a better arg parser.
+//I basically need to turn this
+// "i can use print('hello')" string)
+//from this
+// "i can use print('hello')"
+//to
+// "i can use print('hello')" string
+
+
 
 int getLastIndex(const std::string &str, char ch) {
    for (int i = str.length() - 1; i >= 0; i--)
@@ -61,8 +72,7 @@ std::string ISys_Interp(std::string sss)
     } else if (UType(trim(sss)) == E_OTHER) {
         std::string fname;
         getline(STAT_STREAM, fname, '(');
-        std::string fargs = "";
-        getline(STAT_STREAM, fargs, ')');
+        std::string fargs = last_parse(STAT_STREAM.str().substr(STAT_STREAM.str().find("(")+1, STAT_STREAM.str().find(")")), ')');
         fargs = trim(fargs);
         if (fargs.empty())
             fargs = "Empty";
