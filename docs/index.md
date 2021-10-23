@@ -1,6 +1,16 @@
 # ISys++ Manual
 
-ISys++ is a reimplementation of ISys written in C++.
+ISys++ is an implementation of ISys written in C++.
+
+## Features
+
+- Type safe
+
+- low on resources
+
+- Fast
+
+- Implements all the features ISys Never had
 
 ## Manual
 
