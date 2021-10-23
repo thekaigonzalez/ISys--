@@ -37,10 +37,18 @@ int main(int argc, char* * argv) {
                 std::cout << "isyspp: file not found (stdc++: -std::ifstream returned false)" << std::endl;
             } else {
                 std::stringstream buf;
-                buf << File.rdbuf();
+                std::string stat;
+                while (getline(File, stat) ) {
+                    if (stat[0] == '#') {
+                        continue;
+                    } else {
+                        buf << stat;
+                    }
+                }
                 std::string fcontents = buf.str();
                 std::vector<std::string>Stats = split(fcontents, ';');
                 for (int i =0; i < Stats.size() ; ++ i)
+
                     Stats[i] = trim(Stats[i]);
                 for (const auto& stat : Stats) {
                     if (stat.length() > 0) {
