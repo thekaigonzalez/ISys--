@@ -18,6 +18,8 @@ int UType(const std::string& c) {
         return E_INT;
     } else if (IsInt(c) == false) { /* if not integer, then it's likely a var decl. */
         return E_LIKELY;
+    } else if (c[0] == 'e') {
+        return E_EVAL;
     }
     return E_NULL;
 }

@@ -120,6 +120,10 @@ std::string ISys_Interp(std::string sss)
        if (varmem.find(split(trim(sss), ' ')[0]) != varmem.end()) {
            return varmem[split(trim(sss), ' ')[0]];
        }
+    } else if (UType(trim(sss)) == E_EVAL) {
+
+        STAT_STREAM.str(sss.substr(sss.find("e")+1));
+        return ISys_Interp(PrettyPrint(sss));
     }
     return "Null";
 }
