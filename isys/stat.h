@@ -81,7 +81,7 @@ std::string ISys_Interp(std::string sss)
         fargs = trim(fargs);
         // std::cout << fargs << std::endl;
         if (fargs.empty())
-            fargs = "Empty";
+            fargs = "None";
         int i = 0;
         if (trim(fargs)[0] != '\"') {
             /*
