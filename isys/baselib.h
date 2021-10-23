@@ -42,10 +42,8 @@ int b_println(std::string arguments, std::string) {
 }
 
 /* length of string */
-int b_len(std::string arguments, std::string aVal) {
-    std::cout << arguments << std::endl;
-    std::cout << PrettyPrint(arguments).length() << std::endl;
-    return 1;
+std::string b_len(std::string arguments, std::string aVal) {
+    return std::to_string(PrettyPrint(arguments).length());
 }
 /* coming soon */
 int b_printf(std::string arguments, std::string) {
@@ -80,13 +78,9 @@ std::string b_read(std::string arguments, std::string argVal) {
     return "\"" + ret + "\"";
 }
 #ifdef USE_READLINE
-
-
 std::string b_readline(std::string arguments, std::string argVal) {
     std::string re = readline(PrettyPrint(arguments).c_str());
 
     return "\"" + re + "\"";
 }
-
-
 #endif
