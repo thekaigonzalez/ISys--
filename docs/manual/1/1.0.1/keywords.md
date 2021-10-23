@@ -30,3 +30,37 @@ Importing files will aid in keeping code maintainable, as well as help traceback
 The "If Statement" helps you control your code.
 
 ```
+
+if var == "Value" {
+    println("var is Value!");
+};
+
+```
+
+## Keyword 1.4 - else
+
+The "Else" Keyword basically does functions (or statements) if the if statement isn't valid.
+
+If there's no `if` block then it will return Null & An Error message.
+
+```
+
+if hello = "Not Hello" {
+    print("Impossible!\n");
+}; else {
+    print("There we go.\n");
+};
+
+```
+
+`There we go.`
+
+```
+
+else {
+    print("There we go.\n");
+};
+
+```
+
+`'else' without previous 'if'`
