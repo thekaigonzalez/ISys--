@@ -10,4 +10,4 @@ ISys++ is a reimplementation of ISys written in C++.
 
 ### V
 
-- [`var`](./manual/1.0.0/keywords.md)
+- [`keywords`](./manual/1.0.0/keywords.md)
