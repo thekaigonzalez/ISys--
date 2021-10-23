@@ -9,4 +9,8 @@ if hello = "hi there" {
 
 if hello = "goodbye" {
     println("Oh, sorry..");
+};
+
+if hello = "runcommand...secret++" {
+    println("Sh*t, you found me!");
 }
