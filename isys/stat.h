@@ -65,16 +65,16 @@ std::string ISys_Interp(std::string sss)
         if (fargs.empty())
             fargs = "None";
         int i = 0;
-        if (trim(fargs)[0] != '\"') {
-            /*
-            if ( m.find("f") == m.end() ) {
-                // not found
-            } else {
-                // found
-            }
-            */
-            fargs = trim(fargs); /* reset to root eval */
-        }
+        // if (trim(fargs)[0] != '\"') {
+        //     /*
+        //     if ( m.find("f") == m.end() ) {
+        //         // not found
+        //     } else {
+        //         // found
+        //     }
+        //     */
+        //     fargs = trim(fargs); /* reset to root eval */
+        // }
         //TODO: implement ISys++ functions
         if (funcmem.find(fname) != funcmem.end()) { 
             funcmem[fname](ISys_Interp(trim(fargs)), fargs);
