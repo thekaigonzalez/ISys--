@@ -93,7 +93,9 @@ std::vector<std::string>last_arg(std::string cd, char spop = ',') {
             state = 0;
         } else if (cd[i] == ')' && state == 0) {
             if (RETEUN.size() < 1) {
-                // std::cout << "debug: only one arg" << std::endl;
+                if (cdd.empty()) {
+                    return {};
+                }
                 return {cdd};
             } else {
                 return RETEUN;

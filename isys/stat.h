@@ -59,11 +59,14 @@ std::string ISys_Interp(std::string sss)
         getline(STAT_STREAM, fname, '(');
         std::string fargs = last_parse(STAT_STREAM.str().substr(STAT_STREAM.str().find("(")), ')');
         // std::cout << fargs << std::endl;
+        // std::cout << "Before/After Segfault" << std::endl;
         std::vector<std::string>argsv = last_arg(fargs);
         for (int i = 0; i < argsv.size() ; ++ i) {
             // std::cout << "arg: " <<  trim(argsv[i]) << std::endl;
             argsv[i] = ISys_Interp(trim(argsv[i]));
         }
+
+       
         // fargs.pop_back();
         fargs = trim(fargs);
         // std::cout << fargs << std::endl;
