@@ -1,5 +1,24 @@
 #include <iostream>
 #include <sstream>
+#include <vector>
+
+const std::string WHITESPACE = " \n\r\t\f\v";
+ 
+std::string ltrim(const std::string &s)
+{
+    size_t start = s.find_first_not_of(WHITESPACE);
+    return (start == std::string::npos) ? "" : s.substr(start);
+}
+ 
+std::string rtrim(const std::string &s)
+{
+    size_t end = s.find_last_not_of(WHITESPACE);
+    return (end == std::string::npos) ? "" : s.substr(0, end + 1);
+}
+ 
+std::string trim(const std::string &s) {
+    return rtrim(ltrim(s));
+}
 
 std::string last_parse(std::string last,char tok) {
     std::string ns;
@@ -27,4 +46,51 @@ std::string last_parse(std::string last,char tok) {
     }
     return ns;
 }
+bool endsWithR(std::string const&FS, std::string const&e) {
+    if (FS.length() >= e.length()) {
+        return (0 == FS.compare(FS.length() - e.length(), e.length(), e));
+    } else {
+        return false;
+    }
+}
+std::vector<std::string>last_arg(std::string cd, char spop = ',') {
+    std::string cdd = "";
+    bool once = false;
+    std::vector<std::string>RETEUN{};
+    int state = 0;
+    std::cout << cd << std::endl;
+    for (int i = 0; i < cd.length() ; i ++)
+    {
+        
+        //  if (trim(cd).find(',') == std::string::npos && state == 0) {
+        //     RETEUN.push_back(cd);
+        //     return RETEUN;
+        // }
 
+        if (cd[i] == '"' && state == 0) { /* if it's a quote "string" */
+        // std::cout << "Quote opening\n" << cd[i++];
+            state = 1;
+            cdd = cdd + cd[i];
+        } else if (cd[i] == spop && state == 0) { /* if the character's the delimiter and not in a string */
+        // std::cout << "Quote openinCg\n" << cd[i++];
+            RETEUN.push_back(trim(cdd));
+            cdd = "";
+        } else if (cd[i] == spop && state == 1) { /* if the character's the delimiter and is in a string */
+            cdd = cdd + cd[i];
+        } else if (cd[i] == '"' && state == 1) {  /* if it's closing the string */ 
+            cdd = cdd + cd[i];
+            state = 0;
+            if (once) {
+                break;
+            }
+        } else if (cd[i] == ')' && state == 0) {
+           break; 
+        } 
+        else {
+            cdd = cdd + cd[i];
+        }
+            
+    }
+    // std::cout << cdd << std::endl;
+    return RETEUN;
+}
