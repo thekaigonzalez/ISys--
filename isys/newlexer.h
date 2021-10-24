@@ -60,7 +60,7 @@ std::vector<std::string>last_arg(std::string cd, char spop = ',') {
     bool once = false;
     std::vector<std::string>RETEUN{};
     int state = -1;
-    std::cout << "C: " <<  cd << std::endl;
+    // std::cout << "C: " <<  cd << std::endl;
     for (int i = 0; i < cd.length() ; i ++)
     {
         

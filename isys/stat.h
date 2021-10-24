@@ -61,8 +61,8 @@ std::string ISys_Interp(std::string sss)
         // std::cout << fargs << std::endl;
         std::vector<std::string>argsv = last_arg(fargs);
         for (int i = 0; i < argsv.size() ; ++ i) {
-            std::cout << "arg: " <<  trim(argsv[i]) << std::endl;
-            argsv[i] = trim(argsv[i]);
+            // std::cout << "arg: " <<  trim(argsv[i]) << std::endl;
+            argsv[i] = ISys_Interp(trim(argsv[i]));
         }
         // fargs.pop_back();
         fargs = trim(fargs);
