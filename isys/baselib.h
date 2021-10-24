@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include <fstream>
 #ifdef USE_READLINE
 #include <readline/readline.h>
@@ -32,34 +33,31 @@
 
 */
 
-int b_print(std::string arguments, std::string) {
-    std::cout << PrettyPrint(arguments);
+int b_print(std::vector<std::string> argv) {
+    std::cout << PrettyPrint(argv[0]);
     return 1;
 }
 
 /* println(str) */
-int b_println(std::string arguments, std::string) {
-    // std::cout << arguments << std::endl;
-    std::cout << PrettyPrint(arguments) << std::endl;
+int b_println(std::vector<std::string> argv) {
+    // std::cout << argv[0] << std::endl;
+    std::cout << PrettyPrint(argv[0]) << std::endl;
     return 1;
 }
 
 /* length of string */
-std::string b_len(std::string arguments, std::string aVal) {
-    return std::to_string(PrettyPrint(arguments).length());
+std::string b_len(std::vector<std::string> argv) {
+    return std::to_string(PrettyPrint(argv[0]).length());
 }
 
 /* coming soon */
-int b_printf(std::string arguments, std::string) {
+int b_printf(std::vector<std::string> argv) {
     return 1;
 }
 
 /* coming soon */
-int b_writetoFile(std::string arguments, std::string argVal) {
-    std::vector<std::string> argv = last_arg(arguments);
-    for (const auto& i : argv) {
-        std::cout << i << std::endl;
-    }
+int b_writetoFile(std::vector<std::string> argv) {
+    
     std::ofstream file(PrettyPrint(argv[0]));
     file << PrettyPrint(argv[1]);
     file.close();
@@ -67,30 +65,30 @@ int b_writetoFile(std::string arguments, std::string argVal) {
 }
 
 /* debugargs(str) */
-int b_debugargs(std::string arguments, std::string argVal) {
-    std::cout << "Evaluated Arguments: " << arguments << "\n" << "Arguments by themselves: " << argVal << std::endl;
+int b_debugargs(std::vector<std::string> argv) {
+    std::cout << "Evaluated argv[0]: " << argv[0] << "\n" << "argv[0] by themselves: " << std::endl;
     return 1;
 }
 /* system("Command") */
-int b_system(std::string arguments, std::string argVal) {
-    system(arguments.c_str());
+int b_system(std::vector<std::string> argv) {
+    system(argv[0].c_str());
     return 1;
 }
  
 /* tostr(val) -> "val" */
-std::string toString(std::string arguments, std::string argVal)
+std::string toString(std::vector<std::string> argv)
 {
-    return "\"" + arguments + "\"";
+    return "\"" + argv[0] + "\"";
 }
 
-std::string b_read(std::string arguments, std::string argVal) {
+std::string b_read(std::vector<std::string> argv) {
     std::string ret;
     getline(std::cin, ret);
     return "\"" + ret + "\"";
 }
 #ifdef USE_READLINE
-std::string b_readline(std::string arguments, std::string argVal) {
-    std::string re = readline(PrettyPrint(arguments).c_str());
+std::string b_readline(std::vector<std::string> argv) {
+    std::string re = readline(PrettyPrint(argv[0]).c_str());
 
     return "\"" + re + "\"";
 }
