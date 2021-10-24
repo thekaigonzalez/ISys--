@@ -57,8 +57,13 @@ std::string ISys_Interp(std::string sss)
         }
         std::string fname;
         getline(STAT_STREAM, fname, '(');
-        std::string fargs = last_parse(STAT_STREAM.str().substr(STAT_STREAM.str().find("(")+1, STAT_STREAM.str().find(")")-1), ')');
-        
+        std::string fargs = last_parse(STAT_STREAM.str().substr(STAT_STREAM.str().find("(")), ')');
+        // std::cout << fargs << std::endl;
+        std::vector<std::string>argsv = last_arg(fargs);
+        for (int i = 0; i < argsv.size() ; ++ i) {
+            std::cout << "arg: " <<  trim(argsv[i]) << std::endl;
+            argsv[i] = trim(argsv[i]);
+        }
         // fargs.pop_back();
         fargs = trim(fargs);
         // std::cout << fargs << std::endl;
@@ -77,11 +82,11 @@ std::string ISys_Interp(std::string sss)
         // }
         //TODO: implement ISys++ functions
         if (funcmem.find(fname) != funcmem.end()) { 
-            funcmem[fname](ISys_Interp(trim(fargs)), fargs);
+            funcmem[fname](argsv);
         } else {
             if (funcmemF.find(fname) != funcmemF.end()) { 
                 // std::cout << "Found " << std::endl;
-                return funcmemF[fname](ISys_Interp(trim(fargs)), fargs);
+                return funcmemF[fname](argsv);
             } else {
                 if (funcmemD.find(fname) != funcmemD.end()) { 
                     varglob["args"] = fargs;
