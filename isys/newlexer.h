@@ -3,7 +3,8 @@
 #include <vector>
 
 const std::string WHITESPACE = " \n\r\t\f\v";
- 
+/// PLEASE USE MASTER!!!
+/// This is for experimenting with different features before they're implemented.
 std::string ltrim(const std::string &s)
 {
     size_t start = s.find_first_not_of(WHITESPACE);
