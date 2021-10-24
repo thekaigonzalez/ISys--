@@ -79,7 +79,7 @@ std::vector<std::string>last_arg(std::string cd, char spop = ',') {
             // std::cout << "Quote openinCg\n" << cd[i++];
             // std::cout << "Splitting" << std::endl;
             // std::cout << "adding " << cdd << std::endl;
-            std::cout << cd[i+2] << std::endl;
+            // std::cout << cd[i+2] << std::endl;
             // std::cout << "Adding " << cdd << std::endl;
             RETEUN.push_back(trim(cdd));
             cdd = "";
