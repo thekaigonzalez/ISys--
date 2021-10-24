@@ -32,3 +32,18 @@ Portable input function.
 
 binds to readline() in C. Only available on supported OSes, on windows this function does not exist.
 
+## Globals
+
+`args` - Global def cache.
+
+```
+
+def argtest() {
+    println(args);
+}
+
+argtest("Hello");
+
+```
+
+`Hello`

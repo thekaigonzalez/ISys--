@@ -36,7 +36,7 @@ std::string last_parse(std::string last,char tok) {
             ns = ns + last[i];
         }
         else if (last[i] == tok && istring == 2) {
-            // std::cout << "Signal Stop, end " << ns << std::endl; 
+            std::cout << "Signal Stop, end " << ns << std::endl; 
             istring = 3; 
             break;
         } else {
@@ -73,24 +73,22 @@ std::vector<std::string>last_arg(std::string cd, char spop = ',') {
             cdd = cdd + cd[i];
         } else if (cd[i] == spop && state == 0) { /* if the character's the delimiter and not in a string */
         // std::cout << "Quote openinCg\n" << cd[i++];
+        std::cout << "Adding " << cdd << std::endl;
             RETEUN.push_back(trim(cdd));
             cdd = "";
+            continue;
         } else if (cd[i] == spop && state == 1) { /* if the character's the delimiter and is in a string */
             cdd = cdd + cd[i];
         } else if (cd[i] == '"' && state == 1) {  /* if it's closing the string */ 
-            cdd = cdd + cd[i];
+            cdd = cdd + '"';
             state = 0;
-            if (once) {
-                break;
-            }
-        } else if (cd[i] == ')' && state == 0) {
-           break; 
-        } 
+        }
         else {
             cdd = cdd + cd[i];
         }
             
     }
+    std::cout << RETEUN[0] << " : " << RETEUN[1] << std::endl;
     // std::cout << cdd << std::endl;
     return RETEUN;
 }

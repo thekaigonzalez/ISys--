@@ -13,6 +13,7 @@ std::map<std::string, int(*)(std::string, std::string)>funcmem = {
     { "println", b_println },
     { "debugargs" , b_debugargs },
     { "system" , b_system },
+    { "open_and_write" , b_writetoFile },
     { "version", version }
 };
 

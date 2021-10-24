@@ -5,6 +5,8 @@
 #include <readline/history.h>
 #endif
 
+#include "newlexer.h"
+
 #include "cstrings.h"
 /*
  std::string foo() { return "Foo"; }
@@ -54,6 +56,13 @@ int b_printf(std::string arguments, std::string) {
 
 /* coming soon */
 int b_writetoFile(std::string arguments, std::string argVal) {
+    std::vector<std::string> argv = last_arg(arguments);
+    for (const auto& i : argv) {
+        std::cout << i << std::endl;
+    }
+    std::ofstream file(PrettyPrint(argv[0]));
+    file << PrettyPrint(argv[1]);
+    file.close();
     return 1;
 }
 
