@@ -75,7 +75,7 @@ std::vector<std::string>last_arg(std::string cd, char spop = ',') {
         // std::cout << "Quote openinCg\n" << cd[i++];
         std::cout << "Adding " << cdd << std::endl;
             RETEUN.push_back(trim(cdd));
-            cdd = "";
+            cdd[0] = '\0';
             continue;
         } else if (cd[i] == spop && state == 1) { /* if the character's the delimiter and is in a string */
             cdd = cdd + cd[i];
