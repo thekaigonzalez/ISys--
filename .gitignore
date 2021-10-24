@@ -1,3 +1,5 @@
 /.vscode
 /isyspp
 *.o
+/test.cpp
+/*.out
