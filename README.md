@@ -1,12 +1,12 @@
 # ISys++
 
-## WARNING - Do not venture further!
+<!-- ## WARNING - Do not venture further!
 
 This is the experimental branch, everything here is not final.
 
 For stable commits and releases, use the `master` branch. 
 
-Thanks!
+Thanks! -->
 
 ISys++ is a C++ rewrite of the ISys programming language.
 
