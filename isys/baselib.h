@@ -6,8 +6,7 @@
 #ifdef WINDOWS
 #include <Windows.h>
 #define sleep(x) Sleep((x) * 1000)
-#endif
-#ifdef LINUX
+#else
 #include <unistd.h>
 #endif
 #ifdef USE_READLINE
