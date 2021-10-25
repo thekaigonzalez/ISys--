@@ -3,6 +3,14 @@
 #ifdef USE_STACK
 #include "dlsearch.h"
 #endif
+
+#ifdef WINDOWS
+#include <Windows.h>
+#define sleep(x) Sleep((x) * 1000)
+#endif
+#ifdef LINUX
+#include <unistd.h>
+#endif
 #include "prims.h"
 // #include "var.h" *&already included from baselib.h included from prims.h*
 #include "vstr.h"
@@ -74,7 +82,31 @@ std::string ISys_Interp(std::string sss)
             argsv[i] = ISys_Interp(trim(argsv[i]));
         }
 
-       
+        if (fname.find('.') != std::string::npos)
+        {
+            STAT_STREAM.clear();
+            STAT_STREAM.seekg(0);
+
+            std::string cname;
+            getline(STAT_STREAM, cname, '.');
+
+            cname = trim(cname);
+
+            std::string fnameC;
+            getline(STAT_STREAM, fnameC, '(');
+
+            if (classmem.find(cname) != classmem.end()) {
+                if (classmem[cname].find(fnameC) != classmem[cname].end()) {
+                    return classmem[cname][fnameC](argsv);
+                } else {
+                    std::cout << "Class " << cname << " has no function member " << fnameC << std::endl; 
+                    return "none";
+                }
+            } else {
+                std::cout << "Error: no such class " << cname << std::endl;
+                return "none";
+            }
+        }
         // fargs.pop_back();
         // fargs = trim(fargs);
         // std::cout << fargs << std::endl;
