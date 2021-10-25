@@ -1,6 +1,7 @@
 #include "isys/stat.h"
 
 void repl(bool returncodes =false) {
+    add_c_func("ISYSPP_INTERPRETER_VERSION", ISYSPP_INTERPRETER_VERSION);
     std::cout << "ISys++ 1.0 Copyright (C) Kai D. Gonzalez" << std::endl;
     while (true) {
         

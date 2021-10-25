@@ -10,29 +10,7 @@
 #include "newlexer.h"
 
 #include "cstrings.h"
-/*
- std::string foo() { return "Foo"; }
-  std::string bar() { return "Bar"; }
 
-  int main()
-  {
-      std::map<std::string, std::string (*)()> m;
-
-      // Map the functions to the names
-      m["foo"] = &foo;
-      m["bar"] = &bar;
-
-      // Display all of the mapped functions
-      std::map<std::string, std::string (*)()>::const_iterator it = m.begin();
-      std::map<std::string, std::string (*)()>::const_iterator end = m.end();
-
-      while ( it != end ) {
-          std::cout<< it->first <<"\t\""
-              << (it->second)() <<"\"\n";
-          ++it;
-      }
-
-*/
 
 int b_print(std::vector<std::string> argv) {
     std::cout << PrettyPrint(argv[0]);
@@ -64,7 +42,7 @@ int b_printf(std::vector<std::string> argv) {
     return 1;
 }
 
-/* coming soon */
+/* Write text to a file */
 int b_writetoFile(std::vector<std::string> argv) {
     
     std::ofstream file(PrettyPrint(argv[0]));

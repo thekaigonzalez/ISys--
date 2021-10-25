@@ -2,6 +2,8 @@
 #include <map>
 #include "baselib.h"
 
+#define add_c_func(name, func) funcmem[name] =  &func
+
 int version(std::vector<std::string>) {
     std::cout << "Version 1.0.0-git-scm" << std::endl;
     return 1;

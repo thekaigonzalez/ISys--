@@ -27,7 +27,10 @@ int getLastIndex(const std::string &str, char ch) {
 
 std::map<std::string, std::string> varmem;
 
-
+int ISYSPP_INTERPRETER_VERSION(std::vector<std::string>) {
+    std::cout << "Version 1.0.1-git-scm" << std::endl;
+    return 1;
+}
 std::string ISys_Interp(std::string sss) 
 {
     std::istringstream STAT_STREAM(sss);
