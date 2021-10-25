@@ -1,7 +1,15 @@
+# This stuff. Yeah.
+
 println("Setting environment ", "Hello");
 
 os.setenv("Hello", "/bin/hello");
 
 var HOMEDIR = os.getenv("Hello");
 
-println("HelloEnv: ", HOMEDIR)
+println("HelloEnv: ", HOMEDIR);
+
+# if HOMEDIR is "/bin/hello"
+if HOMEDIR = "/bin/hello" {
+    println("Home dir is hello!");
+};
+
