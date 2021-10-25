@@ -187,3 +187,12 @@ std::string os_sleep(std::vector<std::string>a) {
 
     return "?";
 }
+
+std::string os_getenv(std::vector<std::string>a) {
+    return std::string(getenv(a[0].c_str()));
+}
+
+std::string os_setenv(std::vector<std::string>a) {
+    setenv(a[0].c_str(), a[1].c_str(), 1);
+    return "Nothing";
+}

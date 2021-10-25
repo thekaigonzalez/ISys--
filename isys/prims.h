@@ -10,6 +10,16 @@ int version(std::vector<std::string>) {
     return 1;
 }
 
+std::map<std::string, std::map<std::string, std::string(*)(std::vector<std::string>)>> classmem = {
+    {"os", { 
+            {"sleep", os_sleep}, 
+            {"getenv", os_getenv}, 
+            {"setenv", os_setenv}
+            // {"system", b_system} 
+        }
+    }
+};
+
 std::map<std::string, int(*)(std::vector<std::string>)>funcmem = {
     // add a list of builtins here
     { "print", b_print },
@@ -39,11 +49,7 @@ std::map<std::string, std::string(*)(std::vector<std::string>)>funcmemF = {
     #endif
 };
 
-std::map<std::string, std::map<std::string, std::string(*)(std::vector<std::string>)>> classmem = {
-    {"os", {
-        {"sleep", os_sleep}
-    }}
-};
+
 
 std::map<std::string, std::string>funcmemD = {
     {"test", "println(\"hello\"); print('l');"}

@@ -1,0 +1,7 @@
+println("Setting environment ", "Hello");
+
+os.setenv("Hello", "/bin/hello");
+
+var HOMEDIR = os.getenv("Hello");
+
+println("HelloEnv: ", HOMEDIR)
