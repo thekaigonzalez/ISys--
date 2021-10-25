@@ -39,10 +39,6 @@ print(1 + 1)
 
 ## 1.2 Formatting print
 
-There's no printf function yet, but using raw print is a suitable replacement.
+You can use printf for formatting print.
 
-```
-
-var input = read();
-
-print("Well hello there, "); print(input); print("\n");
+`printf(1 + 1, " is the result of 1 + 1");

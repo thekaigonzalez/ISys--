@@ -34,7 +34,7 @@ int getLastIndex(const std::string &str, char ch) {
 #define create_glob_var(name, val) varmem[name] = val
 
 std::string ISYSPP_INTERPRETER_VERSION(std::vector<std::string>) {
-    return "Version 1.0.1-git-scm";
+    return "Version 1.0.3-git-scm";
 }
 std::string ISys_Interp(std::string sss) 
 {
