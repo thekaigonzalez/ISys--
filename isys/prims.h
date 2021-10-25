@@ -6,7 +6,7 @@
 #define add_c_return_func(name, func) funcmemF[name] =  &func
 
 int version(std::vector<std::string>) {
-    std::cout << "Version 1.0.4-git-scm" << std::endl;
+    std::cout << "Version 1.0.5-git-scm" << std::endl;
     return 1;
 }
 
@@ -26,6 +26,8 @@ std::map<std::string, std::string(*)(std::vector<std::string>)>funcmemF = {
     { "tostr" , toString },
     { "read" , b_read },
     { "sum" , b_sum },
+    { "strremove" , b_strrm},
+    { "strreplace" , b_strreplace},
     { "limit" , b_limit },
     { "substr" , b_rlimit },
     { "append" , b_append },

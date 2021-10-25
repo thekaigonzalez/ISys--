@@ -1,3 +1,3 @@
 var onepone = sum(1, 1);
 println();
-printf("hello world, also, sum is ", "Three", "\n");
+printf("hello world, also, sum is ", onepone, "\n");

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include <algorithm>
 
 #ifdef USE_READLINE
 #include <readline/readline.h>
@@ -126,4 +127,33 @@ std::string b_rlimit(std::vector<std::string>argv) {
     int sub2 = std::stoi(argv[2]);
 
     return "\"" + str.substr(sub1, sub2) + "\"";
+}
+
+std::string b_strrm(std::vector<std::string>argv) {
+    std::string str = PrettyPrint(argv[0]);
+    std::string text = PrettyPrint(argv[1]);
+    while (true) {
+        auto n = str.find(text);
+        if (n != std::string::npos) {
+            str.erase(n, text.length());
+        } else {
+            break;
+            // std::cerr << "Warning: string does not contain text." << std::endl;
+        }
+    }
+    return str;
+}
+
+std::string b_strreplace(std::vector<std::string>argv) {
+    std::string str = PrettyPrint(argv[0]);
+    std::string ntext = PrettyPrint(argv[1]);
+    std::string text = PrettyPrint(argv[2]);
+    int index = 0;
+    while (true) {
+        index = str.find(ntext, index);
+        if (index == std::string::npos) break;
+        str.replace(index, text.length(), text);
+        index += text.length();
+    }
+    return str;
 }

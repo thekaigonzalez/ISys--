@@ -1,0 +1,17 @@
+# There's a new "strremove" function, lets test it.
+
+# since strremove only removes one occurrence, we need to do some workarounds.
+
+var str = "Hello, world!";
+
+# returns "Hell, world!"
+var strone = strremove(str, "o"); 
+
+# var strtwo = strremove(strone, "o");
+
+printf("String before: ", str);
+println("");
+printf("String 1: ", strone);
+println("");
+
+# printf("String 2: ", strtwo);
