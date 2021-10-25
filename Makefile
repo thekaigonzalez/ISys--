@@ -8,3 +8,10 @@ endif
 all:
 	gcc isys/tinyexpr.c -c
 	g++ isys.cpp tinyexpr.o $(EXT_FLAGS) -g -o isyspp
+
+preinstall:
+	mkdir /usr/local/include/isys
+
+install:
+	cp ./isyspp /usr/local/bin/isyspp
+	cp isys/*.h /usr/local/include/isys/

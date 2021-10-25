@@ -18,3 +18,8 @@ Another feature is the new lexer. This fixes issues with the recognition and was
 New:
 
 `("hello) world")` -> hello) world
+
+## Optional Features
+
+You have the option to build the ISys++ project with an experimental feature called module loading.
+
