@@ -82,10 +82,11 @@ std::string b_readline(std::vector<std::string> argv) {
 #endif
 
 std::string b_sum(std::vector<std::string> argv) {
-    int num1 = std::stoi(argv[0]);
-    int num2 = std::stoi(argv[1]);
+    int final_ = 0;
 
-    return std::to_string(num1 + num2);
+    for (const auto& num : argv)
+        final_ = final_ + std::stoi(num);
+    return std::to_string(final_);
 }
 
 /* append "text" to variable. NOTE: this blindly places text onto stack. */
