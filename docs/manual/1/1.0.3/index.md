@@ -3,23 +3,23 @@
 - [baselib](./baselib.md)
 - [keywords](./keywords.md)
 - [inner workings](./workings.md)
-- [Features](./features.md)
+<!-- - [Features](./features.md) -->
 
-One of the newest features of ISys++ 1.0.1 - 1.0.2 is `import`. Importing code from other files helps manage your code efficiently.
+One of the newest features of ISys++ 1.0.3 is `def`. Create functions to minimize code usage.
 
-There's also `if` statements now to control your code even better.
+There's a lot of updates to the way data is handled, and to the standard library.
 
 Even after there's just general bug fixes and parser upgrades.
-
+<!-- 
 Another feature is the new lexer. This fixes issues with the recognition and was easier to use.
 
 `("hello) world")` -> hello
 
 New:
 
-`("hello) world")` -> hello) world
+`("hello) world")` -> hello) world -->
 
-## Optional Features
+<!-- ## Optional Features
 
 You have the option to build the ISys++ project with an experimental feature called module loading.
 
@@ -53,4 +53,4 @@ stack helloworld.so;
 
 helloworld();
 
-```
+``` -->
