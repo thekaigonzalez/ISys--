@@ -6,7 +6,7 @@
 #define add_c_return_func(name, func) funcmemF[name] =  &func
 
 int version(std::vector<std::string>) {
-    std::cout << "Version 1.0.2-git-scm" << std::endl;
+    std::cout << "Version 1.0.4-git-scm" << std::endl;
     return 1;
 }
 
