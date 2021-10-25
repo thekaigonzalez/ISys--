@@ -71,6 +71,10 @@ std::vector<std::string>last_arg(std::string cd, char spop = ',') {
         if (state == -1 && cd[i] == '(') {
             state = 0;
         }
+        else if (state == 0 && cd[i] == '(') {
+            // std::cout << "return code" << std::endl;
+            state = 6;
+        }
         else if (cd[i] == '"' && state == 0) { /* if it's a quote "string" */
         // std::cout << "Quote opening\n" << cd[i++];
             state = 1;
@@ -104,7 +108,10 @@ std::vector<std::string>last_arg(std::string cd, char spop = ',') {
             } else {
                 return RETEUN;
             }
-        } // else if (cd[i] == ')' && state == 3) {
+        } else if (state == 6 && cd[i] == ')') {
+            cdd = cdd + cd[i];
+            state = 0;
+        }// else if (cd[i] == ')' && state == 3) {
         //     RETEUN.push_back(cdd);
         //     return RETEUN;
         // }

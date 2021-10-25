@@ -8,7 +8,7 @@ Stable releases are tested before being posted in all areas.
 
 ## Features
 
-- Type safe
+- Dynamically typed
 
 - low on resources
 

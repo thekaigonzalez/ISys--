@@ -66,6 +66,8 @@ This is about milestones so it's updated every stable release.
 
 Prints "param" to stdout, takes unlimited arguments.
 
+Stringifies all parameters if they're not already strings.
+
 Takes param as CString. \n, \r, and others are valid.
 
 <!-- KNOWN BUG: Printf currently discards the third parameter, working on fixes! -->

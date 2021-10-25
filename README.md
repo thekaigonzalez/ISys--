@@ -13,11 +13,14 @@ ISys++ is a C++ rewrite of the ISys programming language.
 ```
 
 kgonzo@me:~/ISys++$ ./isyspp
->>>var c = 1 + 1 / 1
-"2.000000"
->>>println(c)
-2.000000
-inbuilt
+>>>var hello = ""
+
+>>>var hellostring = append(hello, "Hi!")
+
+>>>printf(hellostring, "\n")
+
+Hi!
+
 >>>
 
 ```
