@@ -21,7 +21,7 @@ Stable releases are tested before being posted in all areas.
 - [1.0.0](./manual/1/1.0.0/index.md)
 - [1.0.1](./manual/1/1.0.1/index.md)
 
-### B
+<!-- ### B
 
 - [`baselib`](./manual/1.0.0/baselib.md)
 
@@ -30,4 +30,4 @@ Stable releases are tested before being posted in all areas.
 - [`Inner Workings`](./manual/1.0.0/workings.md)
 ### V
 
-- [`keywords`](./manual/1.0.0/keywords.md)
+- [`keywords`](./manual/1.0.0/keywords.md) -->
