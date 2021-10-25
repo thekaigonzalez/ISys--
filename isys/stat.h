@@ -4,13 +4,7 @@
 #include "dlsearch.h"
 #endif
 
-#ifdef WINDOWS
-#include <Windows.h>
-#define sleep(x) Sleep((x) * 1000)
-#endif
-#ifdef LINUX
-#include <unistd.h>
-#endif
+
 #include "prims.h"
 // #include "var.h" *&already included from baselib.h included from prims.h*
 #include "vstr.h"
