@@ -25,4 +25,4 @@ preinstall:
 
 install:
 	cp ./isyspp /usr/local/bin/isyspp
-	cp isys/*.h /usr/local/include/isys/
+	# cp isys/*.h /usr/local/include/isys/
