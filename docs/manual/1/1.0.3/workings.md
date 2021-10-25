@@ -41,4 +41,12 @@ print(1 + 1)
 
 You can use printf for formatting print.
 
-`printf(1 + 1, " is the result of 1 + 1");
+`printf(1 + 1, " is the result of 1 + 1");`
+
+## 1.3 Nesting
+
+nested functions in functions are usually used like
+
+function( (myfunc(params)) , other stuff )
+
+It gets the return code from "myfunc" and uses it as a parameter.
