@@ -18,8 +18,8 @@ Stable releases are tested before being posted in all areas.
 
 ## Manual
 
-- [1.0.0](./manual/1.0.0/index.md)
-- [1.0.1](./manual/1.0.1/index.md)
+- [1.0.0](./manual/1/1.0.0/index.md)
+- [1.0.1](./manual/1/1.0.1/index.md)
 
 ### B
 
