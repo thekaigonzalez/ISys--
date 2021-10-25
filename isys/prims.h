@@ -39,9 +39,16 @@ std::map<std::string, std::string(*)(std::vector<std::string>)>funcmemF = {
     #endif
 };
 
+std::map<std::string, std::map<std::string, std::string(*)(std::vector<std::string>)>> classmem = {
+    {"os", {
+        {"sleep", os_sleep}
+    }}
+};
+
 std::map<std::string, std::string>funcmemD = {
     {"test", "println(\"hello\"); print('l');"}
 };
+
 
 std::map<std::string, std::string> varglob = {
     {"args", "NoneYet"}

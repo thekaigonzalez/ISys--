@@ -1,3 +1,5 @@
 import FileSystem.ispp;
 
-CreateFileWName("hello.txt");
+# CreateFileWName("hello.txt");
+
+open_and_write("hello.txt", "file is cool!");

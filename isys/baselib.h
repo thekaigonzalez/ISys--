@@ -3,7 +3,13 @@
 #include <fstream>
 #include <algorithm>
 #include <math.h>
-
+#ifdef WINDOWS
+#include <Windows.h>
+#define sleep(x) Sleep((x) * 1000)
+#endif
+#ifdef LINUX
+#include <unistd.h>
+#endif
 #ifdef USE_READLINE
 #include <readline/readline.h>
 #include <readline/history.h>
@@ -51,6 +57,8 @@ int b_printf(std::vector<std::string> argv) {
     }
     return 1;
 }
+
+
 
 /* Write text to a file */
 int b_writetoFile(std::vector<std::string> argv) {
@@ -173,4 +181,10 @@ std::string b_strreplace(std::vector<std::string>argv) {
         index += text.length();
     }
     return "\"" + str + "\"";
+}
+
+std::string os_sleep(std::vector<std::string>a) {
+    sleep(std::stoi(a[0]));
+
+    return "?";
 }
