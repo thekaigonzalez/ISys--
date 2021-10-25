@@ -95,3 +95,20 @@ std::string b_append(std::vector<std::string> argv) {
    
     return varmem[varname] + data;
 }
+
+/* limits string's text. Kind of like substring */
+/* var xc = limit("xc the ultimate", 3) */
+std::string b_limit(std::vector<std::string> argv) {
+    std::string strtobedelimited = argv[0];
+    std::string newdel = "";
+    int numlimit = std::stoi(argv[1]);
+    for (int i = 0; i < strtobedelimited.length() ; ++ i) {
+        if (i == numlimit) {
+            break;
+        } else {
+            newdel = newdel + strtobedelimited[i];
+        }
+    }
+
+    return "\"" + PrettyPrint(newdel) + "\"";
+}
