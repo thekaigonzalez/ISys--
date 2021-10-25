@@ -156,9 +156,14 @@ std::string ISys_Interp(std::string sss)
                     }
                 } 
                 */ // c
-            if (varmem.find(split(trim(sss), ' ')[0]) != varmem.end()) {
+            if (trim(sss).find("=") != std::string::npos) {
+
+            }
+            else if (varmem.find(split(trim(sss), ' ')[0]) != varmem.end()) {
+                
                 return varmem[split(trim(sss), ' ')[0]];
             }
+            
         }
         if (varmem.find(split(trim(sss), ' ')[0]) != varmem.end()) {
             return varmem[split(trim(sss), ' ')[0]];
@@ -265,6 +270,49 @@ std::string ISys_Interp(std::string sss)
             funcmemD[fnameC] = statstr;
         }
     } 
+    else if (UType(trim(sss)) == E_FOR) { // for i in array { println(i); }
+        STAT_STREAM >> keywd;
+        std::string vname;
+        std::string inw;
+        std::string varname;
+    } else if (UType(trim(sss)) == E_WHILE) {
+        STAT_STREAM >> keywd;
+
+        std::string var;
+        std::string value;
+        getline(STAT_STREAM, var, '=');
+        var = trim(var);
+        getline(STAT_STREAM, value, '{');
+        std::string satts;
+        getline(STAT_STREAM, satts, '}');
+
+        satts = trim(satts);
+        var = ISys_Interp(var);
+        value = ISys_Interp(trim(value));
+
+        // std::cout << "If the value " << var << "is " << value << " then execute: " << satts << std::endl;
+        std::string fcontents = satts;
+        std::vector<std::string>Stats = split(fcontents, ';');
+        while (ISys_Interp(var) == value) {
+            std::cout << var << std::endl;
+            for (int i =0; i < Stats.size() ; ++ i) {
+
+                Stats[i] = trim(Stats[i]);
+                for (const auto& stat : Stats) {
+                    if (stat.length() > 0) {
+                        ISys_Interp(stat);
+                        var = ISys_Interp(trim(var));
+                        value = ISys_Interp(trim(value));
+                    }
+                }
+            }
+            var = ISys_Interp(trim(var));
+            value = ISys_Interp(trim(value));
+        } 
+        // } else {
+        //     ifstate = 1;
+        // }
+    }
     #ifdef USE_STACK
     else if (UType(trim(sss)) == E_STACK) {
         STAT_STREAM >> keywd;
@@ -277,5 +325,6 @@ std::string ISys_Interp(std::string sss)
 
     }
     #endif
+
     return "Null";
 }

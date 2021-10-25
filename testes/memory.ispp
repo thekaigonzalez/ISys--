@@ -1,0 +1,10 @@
+# the new memory library
+
+var hello = "Hello, ";
+var world = "World!";
+
+println(hello, world);
+
+memory.delvar("hello");
+
+println(hello, world);

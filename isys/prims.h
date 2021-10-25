@@ -17,6 +17,11 @@ std::map<std::string, std::map<std::string, std::string(*)(std::vector<std::stri
             {"setenv", os_setenv}
             // {"system", b_system} 
         }
+    },
+    {
+        "memory", {
+            {"delvar", memory_deletevar}
+        }
     }
 };
 

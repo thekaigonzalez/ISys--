@@ -22,6 +22,12 @@ int UType(const std::string& c) {
     } else if (split(c, ' ')[0] == "import") {
        return E_IMPORT; 
     } 
+    else if (split(c, ' ')[0] == "for") {
+        return E_FOR;
+    }
+    else if (split(c, ' ')[0] == "while") {
+        return E_WHILE;
+    }
     #ifdef USE_STACK
     else if (split(c, ' ')[0] == "stack") {
        return E_STACK; 

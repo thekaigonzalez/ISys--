@@ -1,0 +1,9 @@
+var vare = 1;
+
+println("Variable before replacement: ", vare);
+
+os.sleep(3);
+
+var vare = mul(vare, 10);
+
+println("Variable after replacement: ", vare);

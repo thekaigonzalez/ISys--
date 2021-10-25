@@ -1,0 +1,10 @@
+# While loop (broken)
+
+# var string = "One";
+
+# while string = "One" {
+#     println("String = One");
+#     memory.delvar("string");
+# };
+
+

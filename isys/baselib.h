@@ -185,7 +185,7 @@ std::string b_strreplace(std::vector<std::string>argv) {
 std::string os_sleep(std::vector<std::string>a) {
     sleep(std::stoi(a[0]));
 
-    return "?";
+    return "Nothing";
 }
 
 std::string os_getenv(std::vector<std::string>a) {
@@ -194,5 +194,10 @@ std::string os_getenv(std::vector<std::string>a) {
 
 std::string os_setenv(std::vector<std::string>a) {
     setenv(a[0].c_str(), a[1].c_str(), 1);
+    return "Nothing";
+}
+
+std::string memory_deletevar(std::vector<std::string>a) {
+    varmem.erase(PrettyPrint(a[0]));
     return "Nothing";
 }
