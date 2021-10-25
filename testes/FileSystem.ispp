@@ -1,0 +1,3 @@
+def CreateFileWName() {
+    open_and_write(args, "hello!");
+};

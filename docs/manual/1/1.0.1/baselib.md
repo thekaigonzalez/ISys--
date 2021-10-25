@@ -50,7 +50,7 @@ Searches for [text] in [var] and removes it.
 
 ## append(var, text)
 
-append "text" to variable. 
+append "text" to variable and returns the data passed.
 
 NOTE: this blindly places text onto stack.
 

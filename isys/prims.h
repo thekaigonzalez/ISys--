@@ -26,6 +26,7 @@ std::map<std::string, std::string(*)(std::vector<std::string>)>funcmemF = {
     { "tostr" , toString },
     { "read" , b_read },
     { "sum" , b_sum },
+    { "append" , b_append },
     { "len"  , b_len},
     #ifdef USE_READLINE
     { "greadline" , b_readline }
