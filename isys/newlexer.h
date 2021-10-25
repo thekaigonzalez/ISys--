@@ -63,7 +63,7 @@ std::vector<std::string>last_arg(std::string cd, char spop = ',') {
     // std::cout << "C: " <<  cd << std::endl;
     for (int i = 0; i < cd.length() ; i ++)
     {
-        std::cout << cd[i];;
+        // std::cout << cd[i];;
         //  if (trim(cd).find(',') == std::string::npos && state == 0) {
         //     RETEUN.push_back(cd);
         //     return RETEUN;
@@ -86,7 +86,7 @@ std::vector<std::string>last_arg(std::string cd, char spop = ',') {
             // state = 3;
             continue;
         } else if (cd[i] == spop && state == 1) { /* if the character's the delimiter and is in a string */
-            std::cout << "char: " << cd[i] << std::endl;
+            // std::cout << "char: " << cd[i] << std::endl;
             cdd = cdd + cd[i];
         } else if (cd[i] == '"' && state == 1) {  /* if it's closing the string */ 
             cdd = cdd + '"';
