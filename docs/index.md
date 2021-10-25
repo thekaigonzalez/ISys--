@@ -18,9 +18,9 @@ Stable releases are tested before being posted in all areas.
 
 ## Manual
 
-- [1.0.0](./manual/1/1.0.0/index.md)
-- [1.0.1 & 1.0.2](./manual/1/1.0.1/index.md)
-- [1.0.3](./manual/1/1.0.3/index.md)
+- [1.0.0](./manual/1/1.0.0/index.md) (10/20/21)
+- [1.0.1 & 1.0.2](./manual/1/1.0.1/index.md) (10/23/21)
+- [1.0.3](./manual/1/1.0.3/index.md) (10/25/21)
 
 <!-- ### B
 
