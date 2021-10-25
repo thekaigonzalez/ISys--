@@ -3,7 +3,13 @@
 #include <fstream>
 #include <algorithm>
 #include <math.h>
-
+#ifdef WINDOWS
+#include <Windows.h>
+#define sleep(x) Sleep((x) * 1000)
+#endif
+#ifdef LINUX
+#include <unistd.h>
+#endif
 #ifdef USE_READLINE
 #include <readline/readline.h>
 #include <readline/history.h>
