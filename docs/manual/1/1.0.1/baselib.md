@@ -32,6 +32,12 @@ Portable input function.
 
 binds to readline() in C. Only available on supported OSes, on windows this function does not exist.
 
+## sum(int, int)
+
+Sum expects two numbers, anything else is undefined behavior. 
+
+Returns int + int
+
 ## Globals
 
 `args` - Global def cache.
@@ -47,3 +53,4 @@ argtest("Hello");
 ```
 
 `Hello`
+
