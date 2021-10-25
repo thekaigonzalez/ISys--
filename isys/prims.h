@@ -12,6 +12,7 @@ std::map<std::string, int(*)(std::vector<std::string>)>funcmem = {
     { "print", b_print },
     { "println", b_println },
     { "debugargs" , b_debugargs },
+    { "printf", b_printf },
     { "system" , b_system },
     { "open_and_write" , b_writetoFile },
     { "version", version }
@@ -21,6 +22,7 @@ std::map<std::string, std::string(*)(std::vector<std::string>)>funcmemF = {
     // add a list of builtins here
     { "tostr" , toString },
     { "read" , b_read },
+    { "sum" , b_sum },
     { "len"  , b_len},
     #ifdef USE_READLINE
     { "greadline" , b_readline }

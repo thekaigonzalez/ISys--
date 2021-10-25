@@ -68,22 +68,12 @@ std::string ISys_Interp(std::string sss)
 
        
         // fargs.pop_back();
-        fargs = trim(fargs);
+        // fargs = trim(fargs);
         // std::cout << fargs << std::endl;
         if (fargs.empty())
             fargs = "None";
         int i = 0;
-        // if (trim(fargs)[0] != '\"') {
-        //     /*
-        //     if ( m.find("f") == m.end() ) {
-        //         // not found
-        //     } else {
-        //         // found
-        //     }
-        //     */
-        //     fargs = trim(fargs); /* reset to root eval */
-        // }
-        //TODO: implement ISys++ functions
+        //*NO LONGER TODO* implement ISys++ functions
         if (funcmem.find(fname) != funcmem.end()) { 
             funcmem[fname](argsv);
         } else {
@@ -110,31 +100,32 @@ std::string ISys_Interp(std::string sss)
             }
         }
         return "<builtin function " + fname + ">";
-    } else if (UType(sss) == E_STRING) {
+    } else if (UType(trim(sss)) == E_STRING) {
+        // std::cout << "string";
         CString s(trim(sss));
         return s.Parse();
-    } else if (UType(sss) == E_INT) {
+    } else if (UType(trim(sss)) == E_INT) {
         if (varmem.find(split(trim(sss), ' ')[0]) != varmem.end()) {
            return varmem[split(trim(sss), ' ')[0]];
         } 
-        return "\"" + std::to_string((int)ToInt(sss)) + "\"";
-    } else if (UType(sss) == E_LIKELY) {
+        return std::to_string((int)ToInt(sss));
+    } else if (UType(trim(sss)) == E_LIKELY) {
         // std::cout << "other";
-        // if (sss == "true") {
-        //     return "1";
-        // } else if (sss == "false") {
-        //     return "0";
-        // } else {
-        //         /* if (trim(fargs)[0] != '\"') 
-        //             if (varmem.find(split(fargs, ' ')[0]) != varmem.end()) {
-        //                 fargs = "\"" + varmem[split(fargs, ' ')[0]] + "\"";
-        //             }
-        //         } 
-        //         */ // c
-        //     if (varmem.find(split(trim(sss), ' ')[0]) != varmem.end()) {
-        //         return varmem[split(trim(sss), ' ')[0]];
-        //     }
-        // }
+        if (sss == "true") {
+            return "1";
+        } else if (sss == "false") {
+            return "0";
+        } else {
+                /* if (trim(fargs)[0] != '\"') 
+                    if (varmem.find(split(fargs, ' ')[0]) != varmem.end()) {
+                        fargs = "\"" + varmem[split(fargs, ' ')[0]] + "\"";
+                    }
+                } 
+                */ // c
+            if (varmem.find(split(trim(sss), ' ')[0]) != varmem.end()) {
+                return varmem[split(trim(sss), ' ')[0]];
+            }
+        }
         if (varmem.find(split(trim(sss), ' ')[0]) != varmem.end()) {
             return varmem[split(trim(sss), ' ')[0]];
         }

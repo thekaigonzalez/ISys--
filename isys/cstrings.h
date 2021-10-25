@@ -52,7 +52,7 @@ class CString {
 std::string PrettyPrint(std::string cstring) {
     // std::cout << cstring;
     if (cstring[0] != '"' && cstring[0] != '\'') {
-                std::cout << "error: cstring: 1: not a string" << std::endl;
+                std::cout << "\nerror: cstring: 1: not a string: " << cstring << std::endl;
                 return "ERROR";
     }
     if (cstring[0] == '\'') {

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+
 #ifdef USE_READLINE
 #include <readline/readline.h>
 #include <readline/history.h>
@@ -50,8 +51,16 @@ std::string b_len(std::vector<std::string> argv) {
     return std::to_string(PrettyPrint(argv[0]).length());
 }
 
-/* coming soon */
+/* format print */
+/* printf("hello: ", name, " how are you today?"); */
 int b_printf(std::vector<std::string> argv) {
+    for (const auto& i : argv) {
+        if (i[0] != '"') {
+            std::cout << i;
+        } else {
+            std::cout << PrettyPrint(i);
+        }
+    }
     return 1;
 }
 
@@ -93,3 +102,10 @@ std::string b_readline(std::vector<std::string> argv) {
     return "\"" + re + "\"";
 }
 #endif
+
+std::string b_sum(std::vector<std::string> argv) {
+    int num1 = std::stoi(argv[0]);
+    int num2 = std::stoi(argv[1]);
+
+    return std::to_string(num1 + num2);
+}

@@ -86,7 +86,7 @@ std::vector<std::string>last_arg(std::string cd, char spop = ',') {
             state = 5;
             continue;
         } else if (cd[i] == spop && state == 1) { /* if the character's the delimiter and is in a string */
-            std::cout << "char: " << cd[i] << std::endl;
+            // std::cout << "char: " << cd[i] << std::endl;
             cdd = cdd + cd[i];
         } else if (cd[i] == '"' && state == 1) {  /* if it's closing the string */ 
             cdd = cdd + '"';
