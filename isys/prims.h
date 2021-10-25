@@ -27,7 +27,9 @@ std::map<std::string, std::string(*)(std::vector<std::string>)>funcmemF = {
     { "read" , b_read },
     { "sum" , b_sum },
     { "limit" , b_limit },
+    { "substr" , b_rlimit },
     { "append" , b_append },
+    { "locate" , b_locate },
     { "len"  , b_len},
     #ifdef USE_READLINE
     { "greadline" , b_readline }

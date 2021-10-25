@@ -112,3 +112,17 @@ std::string b_limit(std::vector<std::string> argv) {
 
     return "\"" + PrettyPrint(newdel) + "\"";
 }
+/* locate("str", "r") -> 3 */
+std::string b_locate(std::vector<std::string> argv) {
+    std::string str = PrettyPrint(argv[0]);
+    std::string text = PrettyPrint(argv[1]);
+    return std::to_string(str.find_first_of(text));
+}
+
+std::string b_rlimit(std::vector<std::string>argv) {
+    std::string str = PrettyPrint(argv[0]);
+    int sub1 = std::stoi(argv[1]);
+    int sub2 = std::stoi(argv[2]);
+
+    return "\"" + str.substr(sub1, sub2) + "\"";
+}
