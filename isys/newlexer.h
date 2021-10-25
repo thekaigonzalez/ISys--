@@ -63,7 +63,7 @@ std::vector<std::string>last_arg(std::string cd, char spop = ',') {
     // std::cout << "C: " <<  cd << std::endl;
     for (int i = 0; i < cd.length() ; i ++)
     {
-        
+        std::cout << cd[i];;
         //  if (trim(cd).find(',') == std::string::npos && state == 0) {
         //     RETEUN.push_back(cd);
         //     return RETEUN;
@@ -83,15 +83,19 @@ std::vector<std::string>last_arg(std::string cd, char spop = ',') {
             // std::cout << "Adding " << cdd << std::endl;
             RETEUN.push_back(trim(cdd));
             cdd = "";
-            state = 5;
+            // state = 3;
             continue;
         } else if (cd[i] == spop && state == 1) { /* if the character's the delimiter and is in a string */
-            // std::cout << "char: " << cd[i] << std::endl;
+            std::cout << "char: " << cd[i] << std::endl;
             cdd = cdd + cd[i];
         } else if (cd[i] == '"' && state == 1) {  /* if it's closing the string */ 
             cdd = cdd + '"';
             state = 0;
         } else if (cd[i] == ')' && state == 0) {
+            // std::cout << "Stopping" << std::endl;
+            if (!cdd.empty()) {
+                RETEUN.push_back(cdd);
+            }
             if (RETEUN.size() < 1) {
                 if (cdd.empty()) {
                     return {};
@@ -100,10 +104,17 @@ std::vector<std::string>last_arg(std::string cd, char spop = ',') {
             } else {
                 return RETEUN;
             }
-        } else if (cd[i] == ')' && state == 5) {
-            RETEUN.push_back(cdd);
-            return RETEUN;
-        }
+        } // else if (cd[i] == ')' && state == 3) {
+        //     RETEUN.push_back(cdd);
+        //     return RETEUN;
+        // }
+        // } else if (cd[i] == ')' && state == 3) {
+        //     state = 0;
+        // }
+        // } else if (cd[i] == ')' && state == 5) {
+        //     RETEUN.push_back(cdd);
+        //     return RETEUN;
+        // }
         else {
             cdd = cdd + cd[i];
         }

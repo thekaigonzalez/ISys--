@@ -60,6 +60,17 @@ Returns a string containing version information.
 
 This is about milestones so it's updated every stable release.
 
+## printf(param ...)
+
+"Print format"
+
+Prints "param" to stdout, takes unlimited arguments.
+
+Takes param as CString. \n, \r, and others are valid.
+
+<!-- KNOWN BUG: Printf currently discards the third parameter, working on fixes! -->
+`printf("Hello, ", "New ", "World!"); -> Hello, New World!`
+
 ## Globals
 
 `args` - Global def cache.

@@ -89,6 +89,8 @@ std::string b_sum(std::vector<std::string> argv) {
 }
 
 /* append "text" to variable. NOTE: this blindly places text onto stack. */
-std::string b_append() {
-
+std::string b_append(std::vector<std::string> argv) {
+    std::string varname = argv[0]; // append(var, data)
+    std::string data = argv[1]; // could be numbers, strings, finishing strings, etc...
+    
 }
