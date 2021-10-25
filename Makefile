@@ -7,6 +7,12 @@ ifeq ($(USEREADLINE), yes)
 	EXT_FLAGS += -DUSE_READLINE -lreadline
 endif
 
+ifneq ($(OS), Windows_NT)
+	# UNAME_S := $(shell uname -s)
+	# ifeq ($)
+	EXT_FLAGS += -DUSE_READLINE -lreadline
+endif
+
 ifeq ($(STACK), yes)
 	EXT_FLAGS += -DUSE_STACK -ldl
 endif
