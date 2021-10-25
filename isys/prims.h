@@ -26,6 +26,7 @@ std::map<std::string, std::string(*)(std::vector<std::string>)>funcmemF = {
     { "tostr" , toString },
     { "read" , b_read },
     { "sum" , b_sum },
+    { "mul" , b_mul },
     { "strremove" , b_strrm},
     { "strreplace" , b_strreplace},
     { "limit" , b_limit },

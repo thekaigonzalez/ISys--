@@ -1,0 +1,12 @@
+println("This is the length of Hello world * 4");
+
+# get length
+var len_ohw = len("Hello world");
+
+println("Original Length: ", len_ohw);
+
+# Multiply it by 4
+var xfour = mul(len_ohw, 4);
+
+# Print it
+println((tostr(xfour)));

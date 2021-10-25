@@ -2,6 +2,7 @@
 #include <vector>
 #include <fstream>
 #include <algorithm>
+#include <math.h>
 
 #ifdef USE_READLINE
 #include <readline/readline.h>
@@ -21,7 +22,15 @@ int b_print(std::vector<std::string> argv) {
 /* println(str) */
 int b_println(std::vector<std::string> argv) {
     // std::cout << argv[0] << std::endl;
-    std::cout << PrettyPrint(argv[0]) << std::endl;
+    // std::cout << PrettyPrint(argv[0]) << std::endl;
+    for (const auto& i : argv) {
+        if (i[0] != '"') {
+            std::cout << i;
+        } else {
+            std::cout << PrettyPrint(i);
+        }
+    }
+    std::cout << std::endl;
     return 1;
 }
 
@@ -87,6 +96,14 @@ std::string b_sum(std::vector<std::string> argv) {
 
     for (const auto& num : argv)
         final_ = final_ + std::stoi(num);
+    return std::to_string(final_);
+}
+
+std::string b_mul(std::vector<std::string> argv) {
+    int final_ = 1;
+
+    for (const auto& num : argv)
+        final_ = final_ * std::stoi(num);
     return std::to_string(final_);
 }
 

@@ -18,9 +18,13 @@ Get the length of str.
 
 Returns: `number of letters in <str> counting NUL`
 
-## println(str: string) (NEW)
+## println(str: string ...fmt)
 
-Prints `str` with \n, you can write
+Prints `str` with \n, you can write \n but it isn't recommended.
+
+You can use `printf-like` formatting. (as of 1.0.5)
+
+`println("Hello: ", "World!");`
 
 ## tostr(i: any)
 
