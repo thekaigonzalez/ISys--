@@ -1,5 +1,8 @@
 #include <iostream>
 #include <map>
+#ifdef USE_STACK
+#include "dlsearch.h"
+#endif
 #include "prims.h"
 // #include "var.h" *&already included from baselib.h included from prims.h*
 #include "vstr.h"
@@ -235,6 +238,18 @@ std::string ISys_Interp(std::string sss)
             statstr = trim(statstr);
             funcmemD[fnameC] = statstr;
         }
+    } 
+    #ifdef USE_STACK
+    else if (UType(trim(sss)) == E_STACK) {
+        STAT_STREAM >> keywd;
+
+        std::string file;
+
+        STAT_STREAM >> file;
+
+        run_ispp_lib(file.c_str(), "isp_voke");
+
     }
+    #endif
     return "Null";
 }

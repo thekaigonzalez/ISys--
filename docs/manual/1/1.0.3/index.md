@@ -23,3 +23,34 @@ New:
 
 You have the option to build the ISys++ project with an experimental feature called module loading.
 
+You can load .so files that use the ISysPP headers.
+
+Example:
+
+```c
+
+#include <iostream>
+#include <vector>
+#include <isys/ispp_stack.h>
+
+int f_helloworld(std::vector<std::string>arguments) {
+    std::cout << "Hello, world!" << std::endl;
+}
+
+/// called when library is loaded
+int isp_voke() {
+    isys_register_c_function("helloworld", &f_helloworld);
+}
+```
+
+`g++ helloworld.cpp -shared -fPIC -Wall -o helloworld.so`
+
+ISPP code:
+
+```
+
+stack helloworld.so;
+
+helloworld();
+
+```

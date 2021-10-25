@@ -21,7 +21,14 @@ int UType(const std::string& c) {
         return E_VAR;
     } else if (split(c, ' ')[0] == "import") {
        return E_IMPORT; 
-    } else if (c.find("(") != std::string::npos)
+    } 
+    #ifdef USE_STACK
+    else if (split(c, ' ')[0] == "stack") {
+       return E_STACK; 
+    } 
+    #endif
+    
+    else if (c.find("(") != std::string::npos)
         return E_OTHER;
     else if (c[0] == '"') {
         return E_STRING;
