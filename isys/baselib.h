@@ -10,7 +10,7 @@
 #include "newlexer.h"
 
 #include "cstrings.h"
-
+#include "var.h"
 
 int b_print(std::vector<std::string> argv) {
     std::cout << PrettyPrint(argv[0]);
@@ -86,4 +86,9 @@ std::string b_sum(std::vector<std::string> argv) {
     int num2 = std::stoi(argv[1]);
 
     return std::to_string(num1 + num2);
+}
+
+/* append "text" to variable. NOTE: this blindly places text onto stack. */
+std::string b_append() {
+
 }

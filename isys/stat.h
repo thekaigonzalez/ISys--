@@ -1,6 +1,7 @@
 #include <iostream>
 #include <map>
 #include "prims.h"
+// #include "var.h" *&already included from baselib.h included from prims.h*
 #include "vstr.h"
 #include "recog.h"
 
@@ -25,11 +26,12 @@ int getLastIndex(const std::string &str, char ch) {
    return -1;
 }
 
-std::map<std::string, std::string> varmem;
 
-int ISYSPP_INTERPRETER_VERSION(std::vector<std::string>) {
-    std::cout << "Version 1.0.1-git-scm" << std::endl;
-    return 1;
+
+#define create_glob_var(name, val) varmem[name] = val
+
+std::string ISYSPP_INTERPRETER_VERSION(std::vector<std::string>) {
+    return "Version 1.0.1-git-scm";
 }
 std::string ISys_Interp(std::string sss) 
 {

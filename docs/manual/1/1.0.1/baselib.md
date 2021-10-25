@@ -38,6 +38,28 @@ Sum expects two numbers, anything else is undefined behavior.
 
 Returns int + int
 
+## version()
+
+Prints the most recent ISys++ version from the git branch. Non-mutable.
+
+For mutable version strings, use [`ISYSPP_INTERPRETER_VERSION`](#isys_interpreter_version) combined with [`append`](#append) or [`remove_tl`](#remove_tl)
+
+## remove_tl(var, text)
+
+Searches for [text] in [var] and removes it.
+
+## append(var, text)
+
+append "text" to variable. 
+
+NOTE: this blindly places text onto stack.
+
+## ISYS_INTERPRETER_VERSION
+
+Returns a string containing version information.
+
+This is about milestones so it's updated every stable release.
+
 ## Globals
 
 `args` - Global def cache.
