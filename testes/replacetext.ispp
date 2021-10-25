@@ -5,4 +5,4 @@ var str = "Hello, world!";
 # create new string
 var newstr = strreplace(str, "e", "o");
 
-println((tostr(newstr)));
+println(newstr);

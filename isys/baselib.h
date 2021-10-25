@@ -155,5 +155,5 @@ std::string b_strreplace(std::vector<std::string>argv) {
         str.replace(index, text.length(), text);
         index += text.length();
     }
-    return str;
+    return "\"" + str + "\"";
 }
