@@ -141,7 +141,7 @@ std::vector<std::string>last_var(std::string stat) {
     std::vector<std::string>vplacement;
     
     std::string name = stat.substr(0, stat.find("="));
-    std::cout << stat.find('=');
+    // std::cout << stat.find('=');
     std::string value = stat.substr(stat.find('=')+1, stat.find('\n'));
 
 

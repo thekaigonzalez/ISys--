@@ -306,9 +306,9 @@ std::string ISys_Interp(std::string sss)
         getline(STAT_STREAM, dummy, '=');
         getline(STAT_STREAM, valuetwo, '\n');
 
-        valueone = trim(valueone);
+        valueone = ISys_Interp(trim(valueone));
 
-        valuetwo = trim(valuetwo);
+        valuetwo = ISys_Interp(trim(valuetwo));
 
         if (valueone == valuetwo) {
             return "1";
@@ -370,7 +370,7 @@ std::string ISys_Interp(std::string sss)
 
         getline(STAT_STREAM, data, '\n');
 
-        std::cout << ISys_Interp(data) << std::endl;
+        // std::cout << ISys_Interp(data) << std::endl;
         return ISys_Interp(data);
     }
     #ifdef USE_STACK

@@ -2,6 +2,6 @@
 
 # Quick eval
 
-var istrue = if true { return "Hello"; }; else { return false; };
+var istrue = true == true;
 
 println("Is true? ", istrue)

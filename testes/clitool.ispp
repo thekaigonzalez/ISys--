@@ -1,4 +1,5 @@
-#!./isyspp
+#!/usr/local/bin/isyspp
+# println(argv[0], " ", argv[1]); - Uncomment for test if not working
 
 if argv[1] == "-h" {
     println(argv[0], " [-h] [--test]");
@@ -6,4 +7,4 @@ if argv[1] == "-h" {
 
 if argv[1] == "--test" {
     println("Works!");
-}
+};

@@ -19,6 +19,7 @@ endif
 all:
 	gcc isys/tinyexpr.c -c
 	g++ isys.cpp tinyexpr.o $(EXT_FLAGS) -g -o isyspp
+	# g++ isys/isyspapi.cpp -c
 
 preinstall:
 	mkdir /usr/local/include/isys
