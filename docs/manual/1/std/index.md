@@ -117,3 +117,8 @@ argtest("Hello");
 
 `Hello`
 
+### Global Arrays
+
+`argv` -> System passed arguments
+
+`argv[0]` -> ./isyspp

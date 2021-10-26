@@ -27,10 +27,15 @@ void repl(bool returncodes =false) {
 }
 
 int main(int argc, char* * argv) {
-    std::vector<std::string>p(argv, argv + argc);
+    std::vector<std::string>pc(argv, argv + argc);
+
+    std::vector<std::string>p(pc.begin(), pc.end());
     for (int i = 0; i < p.size() ; ++ i) {
         p[i] = "\"" + p[i] + "\"";
     }
+    std::vector<std::string>::iterator it;
+    it = p.begin();
+    p.erase(it);
     add_array_variable("argv", p);
     bool returncodes = false;
     if (argc > 1) {

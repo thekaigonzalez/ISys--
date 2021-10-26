@@ -1,0 +1,9 @@
+#!./isyspp
+
+if argv[1] == "-h" {
+    println(argv[0], " [-h] [--test]");
+};
+
+if argv[1] == "--test" {
+    println("Works!");
+}
