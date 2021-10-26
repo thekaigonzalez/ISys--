@@ -11,3 +11,5 @@ Get better at ISys++ by example
 [Replace text in string](./replacet.md)
 
 [Remove text from string](./removet.md)
+
+[append data to a variable](./appenddata.md)

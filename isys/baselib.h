@@ -116,10 +116,12 @@ std::string b_mul(std::vector<std::string> argv) {
 
 /* append "text" to variable. NOTE: this blindly places text onto stack. */
 std::string b_append(std::vector<std::string> argv) {
-    std::string varname = argv[0]; // append(var, data)
-    std::string data = argv[1]; // could be numbers, strings, finishing strings, etc...
+    std::string varname = PrettyPrint(argv[0]); // append(var, data)
+    std::string data = PrettyPrint(argv[1]); // could be numbers, strings, finishing strings, etc...
    
-    return varmem[varname] + data;
+    varmem[varname] = varmem[varname] + data;
+
+    return varmem[varname];
 }
 
 /* limits string's text. Kind of like substring */
