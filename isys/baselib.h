@@ -61,7 +61,6 @@ int b_printf(std::vector<std::string> argv) {
 
 /* Write text to a file */
 int b_writetoFile(std::vector<std::string> argv) {
-    
     std::ofstream file(PrettyPrint(argv[0]));
     file << PrettyPrint(argv[1]);
     file.close();
@@ -199,7 +198,22 @@ std::string os_setenv(std::vector<std::string>a) {
     return "Nothing";
 }
 
+/* replacement for the baselib "system", runs the command and returns the stat code. */
+std::string os_execute(std::vector<std::string>a) {
+    return std::to_string(system(PrettyPrint(a[0]).c_str()));
+}
+
+/*  */
 std::string memory_deletevar(std::vector<std::string>a) {
     varmem.erase(PrettyPrint(a[0]));
     return "Nothing";
+}
+
+/* memory.hop() Returns the last variable in the varmem stack and removes it. */
+std::string memory_hop(std::vector<std::string>) {
+    std::string v = varmem.end()->first;
+
+    varmem.erase(varmem.end()->first);
+
+    return v;
 }

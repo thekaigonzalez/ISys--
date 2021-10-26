@@ -1,0 +1,9 @@
+var hello = "Hello!";
+
+var goodbye = "Goodbye";
+
+var stat = os.execute("gcc --help");
+
+if stat == 0 {
+    println("So you have GCC installed. Nice!");
+}

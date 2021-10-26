@@ -14,13 +14,15 @@ std::map<std::string, std::map<std::string, std::string(*)(std::vector<std::stri
     {"os", { 
             {"sleep", os_sleep}, 
             {"getenv", os_getenv}, 
-            {"setenv", os_setenv}
+            {"setenv", os_setenv},
+            {"execute", os_execute}
             // {"system", b_system} 
         }
     },
     {
         "memory", {
-            {"delvar", memory_deletevar}
+            {"delvar", memory_deletevar},
+            {"hop", memory_hop}
         }
     }
 };

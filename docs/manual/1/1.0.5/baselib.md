@@ -2,6 +2,8 @@
 
 To check Standard OS, see [OS](./os.md)
 
+To check Memory Functions, see [MEMORY](./memory.md)
+
 Contains base functions hard-coded into the ISys++ interpreter.
 
 std library for 1.0.4 - 1.0.5
