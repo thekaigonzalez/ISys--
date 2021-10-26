@@ -2,6 +2,7 @@
 
 void repl(bool returncodes =false) {
     add_c_return_func("ISYSPP_INTERPRETER_VERSION", ISYSPP_INTERPRETER_VERSION);
+    
     std::cout << "ISys++ 1.0 Copyright (C) Kai D. Gonzalez" << std::endl;
     while (true) {
         
@@ -26,6 +27,11 @@ void repl(bool returncodes =false) {
 }
 
 int main(int argc, char* * argv) {
+    std::vector<std::string>p(argv, argv + argc);
+    for (int i = 0; i < p.size() ; ++ i) {
+        p[i] = "\"" + p[i] + "\"";
+    }
+    add_array_variable("argv", p);
     bool returncodes = false;
     if (argc > 1) {
         if (std::string(argv[1]) == "-returns") {

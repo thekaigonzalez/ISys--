@@ -13,6 +13,8 @@ int UType(const std::string& c) {
     }
     else if (split(c, ' ')[0] == "else") {
         return E_ELSE;
+    } else if (c.find("==") != std::string::npos) {
+        return E_COMP;
     }
     else if (split(c, ' ')[0] == "def") {
         return E_DEF;

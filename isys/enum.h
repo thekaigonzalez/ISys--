@@ -3,6 +3,7 @@ enum {
     E_IF,
     E_STRING,
     E_WHILE,
+    E_COMP,
     E_ELSE,
     E_INT,
     E_IMPORT,

@@ -149,6 +149,24 @@ std::string ISys_Interp(std::string sss)
             return "1";
         } else if (sss == "false") {
             return "0";
+        } else if (trim(sss).find("[") != std::string::npos) {
+            STAT_STREAM.clear();
+            STAT_STREAM.seekg(0);
+            std::string arrayname;
+
+            getline(STAT_STREAM, arrayname, '[');
+
+            arrayname = trim(arrayname);
+
+            std::string pos;
+
+            getline(STAT_STREAM, pos, ']');
+
+            pos = trim(pos);
+
+            int acpos = std::stoi(pos);
+            // std::cout << "Get " << acpos << " from array name: " << arrayname << std::endl;
+            return arraymem[arrayname][acpos];
         } else {
                 /* if (trim(fargs)[0] != '\"') 
                     if (varmem.find(split(fargs, ' ')[0]) != varmem.end()) {
@@ -156,10 +174,7 @@ std::string ISys_Interp(std::string sss)
                     }
                 } 
                 */ // c
-            if (trim(sss).find("=") != std::string::npos) {
-
-            }
-            else if (varmem.find(split(trim(sss), ' ')[0]) != varmem.end()) {
+            if (varmem.find(split(trim(sss), ' ')[0]) != varmem.end()) {
                 
                 return varmem[split(trim(sss), ' ')[0]];
             }
@@ -177,20 +192,20 @@ std::string ISys_Interp(std::string sss)
         STAT_STREAM >> keywd;
         std::string var;
         std::string value;
-        getline(STAT_STREAM, var, '=');
-        var = trim(var);
+        // getline(STAT_STREAM, var, '=');
+        // var = trim(var);
         getline(STAT_STREAM, value, '{');
         std::string satts;
         getline(STAT_STREAM, satts, '}');
 
         satts = trim(satts);
-        var = ISys_Interp(var);
+        // var = ISys_Interp(var);
         value = ISys_Interp(trim(value));
 
         // std::cout << "If the value " << var << "is " << value << " then execute: " << satts << std::endl;
         std::string fcontents = satts;
         std::vector<std::string>Stats = split(fcontents, ';');
-        if (var == value) {
+        if (value == "1") {
             for (int i =0; i < Stats.size() ; ++ i)
 
                 Stats[i] = trim(Stats[i]);
@@ -269,7 +284,25 @@ std::string ISys_Interp(std::string sss)
             statstr = trim(statstr);
             funcmemD[fnameC] = statstr;
         }
-    } 
+    } else if (UType(trim(sss)) == E_COMP) {
+        std::string valueone;
+        std::string dummy;
+        std::string valuetwo;
+        getline(STAT_STREAM, valueone, '=');
+        getline(STAT_STREAM, dummy, '=');
+        getline(STAT_STREAM, valuetwo, '\n');
+
+        valueone = ISys_Interp(trim(valueone));
+
+        valuetwo = ISys_Interp(trim(valuetwo));
+
+        if (valueone == valuetwo) {
+            return "1";
+        } else {
+            ifstate = 1;
+            return "0";
+        }
+    }
     else if (UType(trim(sss)) == E_FOR) { // for i in array { println(i); }
         STAT_STREAM >> keywd;
         std::string vname;
