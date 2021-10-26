@@ -46,21 +46,30 @@ std::string ISys_Interp(std::string sss)
         STAT_STREAM >> keywd;
 
         if (keywd == "var") { /* verify */
-            std::string name;
-            std::string value;
-            STAT_STREAM >> name;
-            std::string ptr;
+            std::string ent;
+            getline(STAT_STREAM, ent);
+            // std::cout << "Simple: " << STAT_STREAM.str() << std::endl;
+            // std::string name;
+            // std::string value;
+            // STAT_STREAM >> name;
+            // std::string ptr;
             
-            getline(STAT_STREAM, ptr, '=');
-            getline(STAT_STREAM, value, '\n');
-            // if (IsString(trim(value))) {
-            //     value = PrettyPrint(trim(value)); // turn value into C string
-            // }
+            // getline(STAT_STREAM, ptr, '=');
+            // getline(STAT_STREAM, value, '\n');
+            // // if (IsString(trim(value))) {
+            // //     value = PrettyPrint(trim(value)); // turn value into C string
+            // // }
             
-            value = ISys_Interp(trim(value));
-            // std::cout << "adding " << value << std::endl;
-            varmem[name] = value;
-            return trim(value); // value is return code
+            // value = ISys_Interp(trim(value));
+            // std::cout << value << std::endl;
+            // // std::cout << "adding " << value << std::endl;
+            
+
+            std::vector<std::string>vpal = last_var(ent);
+
+            // std::cout << vpal[0];
+            varmem[trim(vpal[0])] = ISys_Interp(trim(vpal[1]));
+            return ""; // value is return code
         }
     } else if (UType(trim(sss)) == E_OTHER) {
         if (trim(sss)[0] == '"') {
@@ -291,13 +300,15 @@ std::string ISys_Interp(std::string sss)
         std::string valueone;
         std::string dummy;
         std::string valuetwo;
+        // std::cout << "Ecomp\n";
         getline(STAT_STREAM, valueone, '=');
+        // std::cout << "v: " << valueone << std::endl;
         getline(STAT_STREAM, dummy, '=');
         getline(STAT_STREAM, valuetwo, '\n');
 
-        valueone = ISys_Interp(trim(valueone));
+        valueone = trim(valueone);
 
-        valuetwo = ISys_Interp(trim(valuetwo));
+        valuetwo = trim(valuetwo);
 
         if (valueone == valuetwo) {
             return "1";

@@ -131,3 +131,23 @@ std::vector<std::string>last_arg(std::string cd, char spop = ',') {
     // std::cout << cdd << std::endl;
     return RETEUN;
 }
+
+/// replacement for the existing var lexer
+/// var c = 1 == 1
+/// value: 1
+/// var c = 1 == 1
+/// gets c = 1 == 1
+std::vector<std::string>last_var(std::string stat) {
+    std::vector<std::string>vplacement;
+    
+    std::string name = stat.substr(0, stat.find("="));
+    std::cout << stat.find('=');
+    std::string value = stat.substr(stat.find('=')+1, stat.find('\n'));
+
+
+    // std::cout << value << " and " << name << std::endl;
+    vplacement.push_back(name);
+    vplacement.push_back(value);
+
+    return vplacement;
+}

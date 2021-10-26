@@ -1,7 +1,7 @@
 USEREADLINE=no
 STACK=no
 
-EXT_FLAGS=-O
+EXT_FLAGS=
 
 ifeq ($(USEREADLINE), yes)
 	EXT_FLAGS += -DUSE_READLINE -lreadline
