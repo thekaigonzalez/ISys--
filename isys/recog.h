@@ -54,7 +54,7 @@ int UType(const std::string& c) {
     else if (c[0] == '#') {
         return E_COMMENT;
     } else {
-        std::cout << "because char is " << c[0] << std::endl;
+        // std::cout << "because char is " << c[0] << std::endl;
         return E_LIKELY;
     }
     
