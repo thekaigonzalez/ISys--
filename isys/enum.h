@@ -5,6 +5,8 @@ enum {
     E_WHILE,
     E_COMP,
     E_ELSE,
+    E_ISO,
+    E_RETURN,
     E_INT,
     E_IMPORT,
     E_STACK,

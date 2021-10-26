@@ -2,7 +2,7 @@ def check() {
     var hello = greadline("cwd>");
 };
 check();
-if hello = "Hi." {
+if hello == "Hi." {
         println("Hello.");
 }; else {
         println("What?");

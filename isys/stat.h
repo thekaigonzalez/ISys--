@@ -56,7 +56,9 @@ std::string ISys_Interp(std::string sss)
             // if (IsString(trim(value))) {
             //     value = PrettyPrint(trim(value)); // turn value into C string
             // }
+            
             value = ISys_Interp(trim(value));
+            std::cout << "adding " << value << std::endl;
             varmem[name] = value;
             return trim(value); // value is return code
         }
@@ -144,6 +146,7 @@ std::string ISys_Interp(std::string sss)
         } 
         return std::to_string((int)ToInt(sss));
     } else if (UType(trim(sss)) == E_LIKELY) {
+        
         // std::cout << "other";
         if (sss == "true") {
             return "1";
@@ -345,6 +348,19 @@ std::string ISys_Interp(std::string sss)
         // } else {
         //     ifstate = 1;
         // }
+    } else if (UType(trim(sss)) == E_ISO) {
+        std::string stat = trim(sss).substr(trim(sss).find("(")+1, trim(sss).find_last_of(")")-1);
+        // std::cout << "Executing :" << stat << ":" <<std::endl;
+        return ISys_Interp(trim(stat));
+    } else if (UType(trim(sss)) == E_RETURN) {
+        std::string data;
+
+        STAT_STREAM >> keywd;
+
+        getline(STAT_STREAM, data, '\n');
+
+        std::cout << ISys_Interp(data) << std::endl;
+        return ISys_Interp(data);
     }
     #ifdef USE_STACK
     else if (UType(trim(sss)) == E_STACK) {

@@ -1,0 +1,7 @@
+# Now there's evaluation
+
+# Quick eval
+
+var istrue = if true { return "Hello"; }; else { return false; };
+
+println("Is true? ", istrue)

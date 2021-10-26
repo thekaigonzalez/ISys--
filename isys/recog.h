@@ -29,25 +29,33 @@ int UType(const std::string& c) {
     }
     else if (split(c, ' ')[0] == "while") {
         return E_WHILE;
+    } else if (split(c, ' ')[0] == "return") {
+        return E_RETURN;
     }
     #ifdef USE_STACK
     else if (split(c, ' ')[0] == "stack") {
        return E_STACK; 
     } 
     #endif
-    
+    else if (c[0] == '(') {
+        return E_ISO;
+    } 
     else if (c.find("(") != std::string::npos)
         return E_OTHER;
     else if (c[0] == '"') {
         return E_STRING;
     } else if (IsInt(c)) {
         return E_INT;
-    } else if (IsInt(c) == false) { /* if not integer, then it's likely a var decl. */
-        return E_LIKELY;
-    } else if (c[0] == 'e') {
-        return E_EVAL;
-    } else if (c[0] == '#') {
+    }
+    // else if (IsInt(c) == false) { /* if not integer, then it's likely a var decl. */
+    //     return E_LIKELY;
+    // } else if (c[0] == 'e') {
+        // return E_EVAL;
+    else if (c[0] == '#') {
         return E_COMMENT;
+    } else {
+        std::cout << "because char is " << c[0] << std::endl;
+        return E_LIKELY;
     }
     
     return E_NULL;
