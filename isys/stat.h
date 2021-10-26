@@ -58,7 +58,7 @@ std::string ISys_Interp(std::string sss)
             // }
             
             value = ISys_Interp(trim(value));
-            std::cout << "adding " << value << std::endl;
+            // std::cout << "adding " << value << std::endl;
             varmem[name] = value;
             return trim(value); // value is return code
         }
