@@ -209,6 +209,33 @@ std::string memory_deletevar(std::vector<std::string>a) {
     return "Nothing";
 }
 
+template<typename K, typename V>
+void print_map(std::map<K, V> const &m)
+{
+    for (auto const &pair: m) {
+        std::cout << "{" << pair.first << ": " << pair.second << "}\n";
+    }
+}
+
+/* list all variables in {key: val} form. */
+std::string memory_all(std::vector<std::string>a) {
+    print_map(varmem);
+    // print_map(arraymem);
+    return "";
+}
+
+std::string memory_each(std::vector<std::string>a) {
+    if (arraymem.find(PrettyPrint(a[0])) != arraymem.end()) {
+        for (const auto& member : arraymem[PrettyPrint(a[0])]) {
+            std::cout << "memory: member: " << member << std::endl;
+            return "1";
+        }
+    } else {
+        return "ERROR";
+    }
+    return "";
+}
+
 /* memory.hop() Returns the last variable in the varmem stack and removes it. */
 std::string memory_hop(std::vector<std::string>) {
     std::string v = varmem.end()->first;

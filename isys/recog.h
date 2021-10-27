@@ -29,6 +29,8 @@ int UType(const std::string& c) {
         return E_WHILE;
     } else if (split(c, ' ')[0] == "return") {
         return E_RETURN;
+    } else if (split(c, ' ')[0] == "array") {
+        return E_BARR;
     } else if (c.find("==") != std::string::npos) {
         return E_COMP;
     }
@@ -46,6 +48,8 @@ int UType(const std::string& c) {
         return E_STRING;
     } else if (IsInt(c)) {
         return E_INT;
+    } else if (c[0] == '[') {
+        return E_ARRAY;
     }
     // else if (IsInt(c) == false) { /* if not integer, then it's likely a var decl. */
     //     return E_LIKELY;

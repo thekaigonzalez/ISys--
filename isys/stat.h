@@ -66,7 +66,21 @@ std::string ISys_Interp(std::string sss)
             
 
             std::vector<std::string>vpal = last_var(ent);
+            if (trim(vpal[1])[0] == '[') {
+                std::string vp1 = trim(vpal[1]);
+                std::string vp2 = last_parse(vp1, ']');
+                std::string vp0 = trim(vpal[0]);
+                // std::cout << vp2 << std::endl;
+                std::vector<std::string>argsv = last_arg(vp1, ',', '[', ']');
+                for (int i = 0 ; i < argsv.size() ; i ++) {
+                    argsv[i] = ISys_Interp(trim(argsv[i]));
+                    // std::cout << argsv[i] << std::endl;
+                }
+                // std::cout << "Adding array " << trim(vpal[0]) << std::endl;
+                arraymem[trim(vpal[0])] = argsv;
 
+                return "ARRAY";
+            }
             // std::cout << vpal[0];
             varmem[trim(vpal[0])] = ISys_Interp(trim(vpal[1]));
             return ""; // value is return code
@@ -79,7 +93,7 @@ std::string ISys_Interp(std::string sss)
         std::string fname;
         getline(STAT_STREAM, fname, '(');
         std::string fargs = last_parse(STAT_STREAM.str().substr(STAT_STREAM.str().find("(")), ')');
-        // std::cout << fargs << std::endl;
+        
         // std::cout << "Before/After Segfault" << std::endl;
         std::vector<std::string>argsv = last_arg(fargs);
         for (int i = 0; i < argsv.size() ; ++ i) {
@@ -189,6 +203,12 @@ std::string ISys_Interp(std::string sss)
             if (varmem.find(split(trim(sss), ' ')[0]) != varmem.end()) {
                 
                 return varmem[split(trim(sss), ' ')[0]];
+            } else if (arraymem.find(split(trim(sss), ' ')[0]) != arraymem.end()) {
+                std::cout << "[";
+                for (const auto& i : arraymem[split(trim(sss), ' ')[0]]) { 
+                    std::cout << i << ",";
+                };
+                std::cout << "]"<<std::endl;
             }
             
         }
@@ -372,6 +392,8 @@ std::string ISys_Interp(std::string sss)
 
         // std::cout << ISys_Interp(data) << std::endl;
         return ISys_Interp(data);
+    } else if (UType(trim(sss)) == E_ARRAY) {
+        return trim(sss);
     }
     #ifdef USE_STACK
     else if (UType(trim(sss)) == E_STACK) {

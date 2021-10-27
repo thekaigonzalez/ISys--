@@ -22,7 +22,9 @@ std::map<std::string, std::map<std::string, std::string(*)(std::vector<std::stri
     {
         "memory", {
             {"delvar", memory_deletevar},
-            {"hop", memory_hop}
+            {"hop", memory_hop},
+            {"all", memory_all},
+            {"each", memory_each}
         }
     }
 };

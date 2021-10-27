@@ -3,6 +3,8 @@ enum {
     E_IF,
     E_STRING,
     E_WHILE,
+    E_ARRAY,
+    E_BARR,
     E_COMP,
     E_ELSE,
     E_ISO,
