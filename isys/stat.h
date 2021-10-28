@@ -31,7 +31,7 @@ int getLastIndex(const std::string &str, char ch) {
    return -1;
 }
 
-
+#define ISPP_VECTOR std::vector<std::string>
 
 #define create_glob_var(name, val) varmem[name] = val
 
@@ -342,6 +342,37 @@ std::string ISys_Interp(std::string sss)
         std::string vname;
         std::string inw;
         std::string varname;
+
+        STAT_STREAM >> vname;
+
+        STAT_STREAM >> inw;
+
+        if (inw == "in") {
+            STAT_STREAM >> varname;
+            varname = trim(varname);
+            getline(STAT_STREAM, keywd, '{');
+            keywd = trim(keywd);
+            std::string stats;
+
+            getline(STAT_STREAM, stats, '}');
+
+            std::vector<std::string>Statts = split(stats, ';');
+
+            if (arraymem.find(varname) != arraymem.end()) {
+                for (const auto& i : arraymem[varname]) {
+                    for (uint ic = 0 ; ic < Statts.size(); ic++) {
+                        if (Statts[ic].length() < 0) {
+                            continue;
+                        }
+                        varmem[vname] = i;
+
+                        ISys_Interp(Statts[ic]);
+                    }
+                }
+            } else {
+                std::cout << "Invalid operation 'it::iterate_ispp_array()' on 'non-array-mutable'" << std::endl;
+            }
+        }
     } else if (UType(trim(sss)) == E_WHILE) {
         STAT_STREAM >> keywd;
 
