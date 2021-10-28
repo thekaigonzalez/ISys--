@@ -37,6 +37,7 @@ int main(int argc, char* * argv) {
     it = p.begin();
     p.erase(it);
     add_array_variable("argv", p);
+    add_variable("interpreter", "true");
     bool returncodes = false;
     if (argc > 1) {
         if (std::string(argv[1]) == "-returns") {
